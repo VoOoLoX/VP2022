@@ -5,6 +5,6 @@ Car dealership system implemented both as an web app and as an desktop app using
 
 ## Team members:
 * Daniel Vulić
-* Milos Lazić
-* Milos Manojlović
+* Miloš Lazić
+* Miloš Manojlović
 * Nikola Stevanović
