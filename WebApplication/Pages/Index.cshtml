@@ -1,0 +1,217 @@
+﻿@page
+@model WebApplication.Pages.IndexModel
+@{
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Landing Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="btn-login">Prijavi se</div>
+        <div class="btn-register">Registruj se</div>
+    </header>
+
+    <div class="wrap">
+        <h1 class="moto-text">Pronađi <span style="color:#06BEB6">pravi auto</span> za sebe</h1>
+
+        <div class="cards">
+            <p>izdvajamo iz ponude:</p>
+
+            <div class="card-wrap">
+                <div class="card">
+                    <div class="image-box">
+                        <img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+                    </div>
+                    <div class="description-box">
+                        <h1>Toyota Supra</h1>
+                        <hr>
+                        <p>1994</p>
+                        <p>192.135km</p>
+                        <p>1.8 140ks</p>
+                        <p>limuzina</p>
+                        <p>2/3 vrata</p>
+                    </div>
+                    <div class="div-price">11.000e</div>
+                </div>
+                <div class="card">
+                    <div class="image-box">
+                        <img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+                    </div>
+                    <div class="description-box">
+                        <h1>Toyota Supra</h1>
+                        <hr>
+                        <p>1994</p>
+                        <p>192.135km</p>
+                        <p>1.8 140ks</p>
+                        <p>limuzina</p>
+                        <p>2/3 vrata</p>
+                    </div>
+                    <div class="div-price">11.000e</div>
+                </div>
+                <div class="card">
+                    <div class="image-box">
+                        <img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+                    </div>
+                    <div class="description-box">
+                        <h1>Toyota Supra</h1>
+                        <hr>
+                        <p>1994</p>
+                        <p>192.135km</p>
+                        <p>1.8 140ks</p>
+                        <p>limuzina</p>
+                        <p>2/3 vrata</p>
+                    </div>
+                    <div class="div-price">11.000e</div>
+                </div>
+            </div>
+
+            <div class="btn-showmore">Prikaži više</div>
+        </div>
+    </div>
+
+
+    <style>
+        /*
+            import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+            font-family: 'Comfortaa', cursive;
+            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto', sans-serif;
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .wrap {
+            margin: 0 auto;
+            width: 1200px;
+        }
+
+        .btn-login {
+            margin: 20px 10px 0 10px;
+            padding: 0.5em 2em;
+            background-color: white;
+            font-size: 1.2em;
+            border: 1px solid #437F99;
+            color: #1F3A46;
+            border-radius: 30px;
+            font-family: 'Roboto', sans-serif;
+            cursor: pointer;
+        }
+
+        .btn-register {
+            margin: 20px 20px 0 10px;
+            padding: 0.5em 2em;
+            background-color: #437F99;
+            font-size: 1.2em;
+            border: 1px solid #437F99;
+            color: white;
+            border-radius: 30px;
+            font-family: 'Roboto', sans-serif;
+            cursor: pointer;
+        }
+
+        .btn-showmore {
+            position: relative;
+            left: 40%;
+            padding: 0.5em 2em;
+            background-color: #437F99;
+            font-size: 1.2em;
+            border: 1px solid #437F99;
+            color: white;
+            border-radius: 30px;
+            font-family: 'Roboto', sans-serif;
+            width: 230px;
+            text-align: center;
+            margin-top: 4%;
+            cursor: pointer;
+        }
+
+        .div-price {
+            color: white;
+            background-color: #A0BF48;
+            border-radius: 20px;
+            width: 116px;
+            font-size: 1.6em;
+            text-align: center;
+            font-family: 'Comfortaa', cursive;
+            padding: 5px 0;
+            float: right;
+            bottom: 8%;
+            right: 3%;
+        }
+
+        .moto-text {
+            font-family: 'Comfortaa', cursive;
+            font-weight: bold;
+            color: #1F3A46;
+            text-align: center;
+            margin-top: 5%;
+            font-size: 5em;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cards p {
+            font-family: 'Comfortaa', cursive;
+            font-weight: bold;
+            margin: 10px 0 15px 20px;
+            font-size: 1.2em;
+        }
+
+        .card-wrap {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .card {
+            width: 350px;
+            height: 442px;
+            border-radius: 20px;
+            box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25), 0 -4px 4px 0 rgba(0,0,0,0.25);
+            background-color: white;
+        }
+
+        .card .image-box {
+            width: 100%;
+            height: 50%;
+        }
+
+        .card .image-box img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        .card .description-box {
+            font-family: 'Comfortaa', cursive;
+            font-size: 0.6em;
+            padding: 15px;
+        }
+
+        .card .description-box hr {
+            background-color: #4E4E4E;
+            margin: 5px 0;
+        }
+
+    </style>
+
+</body>
+</html>
