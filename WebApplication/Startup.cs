@@ -27,10 +27,14 @@ namespace WebApplication {
 
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles(new StaticFileOptions() {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "Static")),
+                RequestPath = new PathString("/static")
+            });
+
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
+            app.UseEndpoints(endpoints => {
                 endpoints.MapRazorPages();
             });
         }

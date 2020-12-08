@@ -8,15 +8,16 @@ using Microsoft.Extensions.Logging;
 
 namespace WebApplication.Pages
 {
-    public class IndexModel : PageModel
+    public class BrowseModel : PageModel
     {
-        private readonly ILogger<IndexModel> logger;
+        private readonly ILogger<BrowseModel> logger;
 
-        public IndexModel(ILogger<IndexModel> logger) {
+        public BrowseModel(ILogger<BrowseModel> logger) {
             this.logger = logger;
         }
 
-        public void OnGet() {
+        public void OnGet()
+        {
         }
     }
 }
