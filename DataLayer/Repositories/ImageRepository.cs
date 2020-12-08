@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Shared;
+
+namespace DataLayer {
+	public class ImageRepository : DatabaseModel<Image> {
+		public ImageRepository(DatabaseContext database_context, string table_name)
+			: base(database_context, table_name) { }
+
+	}
+}
