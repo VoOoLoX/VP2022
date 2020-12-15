@@ -74,7 +74,10 @@ CREATE TABLE [Security] (
 CREATE TABLE [Vehicles] (
 	ID int NOT NULL IDENTITY,
 	Price decimal DEFAULT NULL,
+	Mileage decimal DEFAULT NULL,
+	Year int DEFAULT NULL,
 	Color varchar(20) NULL,
+	Fuel varchar(20) DEFAULT NULL,
 	CubicCapacity int DEFAULT NULL,
 	HorsePower int DEFAULT NULL,
 	ManufacturerID int DEFAULT NULL,
