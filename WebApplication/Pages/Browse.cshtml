@@ -1,7 +1,6 @@
 ﻿@page
 @model WebApplication.Pages.BrowseModel
-@{
-}
+@using BusinessLayer
 
 <!DOCTYPE html>
 <html>
@@ -14,51 +13,19 @@
 	<div class="wrap">
 		<div class="cards">
 			<div class="card-wrap">
-				<div class="card">
-					<div class="image-box">
-						<img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+				@foreach (var vehicle in VehicleBusiness.GetAll()) {
+					<div class="card">
+						<div class="description-box">
+							<h1>@VehicleBusiness.GetManufacturer(vehicle).Name - @VehicleBusiness.GetVehicleModel(vehicle).Name</h1>
+							<hr>
+							<p>@vehicle.Color</p>
+							<p>@vehicle.CubicCapacity cc</p>
+							<p>@vehicle.HorsePower ks</p>
+							<p>@VehicleBusiness.GetVehicleType(vehicle).Name</p>
+						</div>
+						<div class="div-price">@vehicle.Price &euro;</div>
 					</div>
-					<div class="description-box">
-						<h1>Toyota Supra</h1>
-						<hr>
-						<p>1994</p>
-						<p>192.135km</p>
-						<p>1.8 140ks</p>
-						<p>limuzina</p>
-						<p>2/3 vrata</p>
-					</div>
-					<div class="div-price">11.000e</div>
-				</div>
-				<div class="card">
-					<div class="image-box">
-						<img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
-					</div>
-					<div class="description-box">
-						<h1>Toyota Supra</h1>
-						<hr>
-						<p>1994</p>
-						<p>192.135km</p>
-						<p>1.8 140ks</p>
-						<p>limuzina</p>
-						<p>2/3 vrata</p>
-					</div>
-					<div class="div-price">11.000e</div>
-				</div>
-				<div class="card">
-					<div class="image-box">
-						<img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
-					</div>
-					<div class="description-box">
-						<h1>Toyota Supra</h1>
-						<hr>
-						<p>1994</p>
-						<p>192.135km</p>
-						<p>1.8 140ks</p>
-						<p>limuzina</p>
-						<p>2/3 vrata</p>
-					</div>
-					<div class="div-price">11.000e</div>
-				</div>
+				}
 			</div>
 		</div>
 	</div>
