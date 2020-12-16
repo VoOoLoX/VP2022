@@ -3,12 +3,12 @@
 @{ Layout = "_LayoutEmpty"; ViewBag.Title = "Početna"; ViewBag.Style = "/static/css/styleIndex.css"; }
 
 <header>
-	<a class="btn-login" asp-page="">Prijavi se</a>
-    <a class="btn-register" asp-page="">Registruj se</a>
+	<a class="btn-login" asp-page="/Login">Prijavi se</a>
+    <a class="btn-register" asp-page="/Register">Registruj se</a>
 </header>
 
 <div class="container">
-	<h1 class="moto-text">Pronađi <span style="color:#06BEB6">pravi auto</span> za tebe</h1>
+	<h1 class="moto-text">Pronađi <span>pravi auto</span> za tebe</h1>
 
 	<div class="cards">
 		@{

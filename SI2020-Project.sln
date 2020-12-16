@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopApplication", "Deskt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "WebApplication\WebApplication.csproj", "{84E71228-DF99-493A-BB4E-BE55DA059398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{604C43E4-9FC0-4993-BA8C-2484C8056821}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{604C43E4-9FC0-4993-BA8C-2484C8056821}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

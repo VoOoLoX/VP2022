@@ -1,0 +1,148 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: #f5f5f5;
+    width: 50%;
+    height: 500px;
+    display: flex;
+}
+
+.left {
+    /* flex: 2; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    color: #203A43;
+    padding: 20px;
+    width: 100%;
+    background: white;
+}
+
+.left img {
+    width: 100%;
+    height: 100%;
+}
+
+.left h1 {
+    font-size: 2vw;
+}
+
+.left h1 span {
+    color: #06BEB6;
+}
+
+.right {
+    background: linear-gradient(to bottom, #0F2027, #203A43, #2C5364);
+    min-width: 350px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Comfortaa', cursive;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.right h2 {
+    color: white;
+    font-size: 2.3em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    color: #437F99;
+    margin: 20px 0;
+}
+
+input:focus {
+    outline: none;
+    color: white;
+}
+
+input[type="text"] {
+    background: transparent;
+    color: rgb(230, 230, 230);
+    border: 1.5px solid #437F99;
+    padding: 12px 12px;
+    border-radius: 30px;
+    font-family: 'Comfortaa', cursive;
+    margin: 5px 0;
+    font-size: 0.9em;
+    transition: 0.5s all;
+}
+
+input[type="text"]:focus {
+    border: 1.5px solid #06BEB6;
+}
+
+input[type="text"]:hover {
+    border: 1.5px solid #06BEB6;
+}
+
+.right-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-login {
+    color: white;
+    background: #437F99;
+    text-align: center;
+    border-radius: 50px;
+    padding: 12px 0;
+    transition: 0.5s;
+    width: 100%;
+}
+
+.btn-login:hover {
+    cursor: pointer;
+    background: #06BEB6;
+    color: white;
+}
+
+.info-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    color: white;
+    font-size: 0.8em;
+}
+
+.info-wrap a {
+    color: #06BEB6;
+    padding-left: 5px;
+    text-decoration: none;
+}
+.info-wrap a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1200px) {
+    .left {
+        display: none;
+    }
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

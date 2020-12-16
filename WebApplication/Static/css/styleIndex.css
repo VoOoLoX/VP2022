@@ -47,28 +47,33 @@ header {
 	border-radius: 30px;
 	font-family: 'Roboto', sans-serif;
 	cursor: pointer;
+	text-decoration:none;
 	transition: 0.5s;
 }
-	.btn-login:hover {
-		background: #ecf2f4;
-	}
+
+.btn-login:hover {
+	background: #ecf2f4;
+}
 
 .btn-register {
 	margin: 15px 0;
 	margin-left: 15px;
 	padding: 0.5em 2em;
 	background-color: #437F99;
-	border: 1px solid #437F99;
 	color: white;
 	font-size: 1.2em;
 	border-radius: 30px;
 	font-family: 'Roboto', sans-serif;
 	cursor: pointer;
+	text-decoration: none;
 	transition: 0.5s;
 }
-	.btn-register:hover {
-		background: #558ba3;
-	}
+
+.btn-register:hover {
+	cursor: pointer;
+	background: #06BEB6;
+	color: white;
+}
 
 .moto-text {
 	font-family: 'Comfortaa', cursive;
@@ -77,6 +82,9 @@ header {
 	text-align: center;
 	font-size: 3em;
 	font-size: 4.5vw;
+}
+.moto-text span {
+	color: #06BEB6;
 }
 
 .cards {
@@ -146,7 +154,6 @@ header {
 	padding: 0.5em 2em;
 	background-color: #437F99;
 	font-size: 1.2em;
-	border: 1px solid #437F99;
 	border-radius: 30px;
 	font-family: 'Roboto', sans-serif;
 	width: 230px;
@@ -159,7 +166,9 @@ header {
 }
 
 .btn-showmore:hover {
-	background: #558ba3;
+	cursor: pointer;
+	background: #06BEB6;
+	color: white;
 }
 
 .btn-showmore a {
@@ -172,6 +181,10 @@ header {
 }
 
 @media screen and (max-width: 1200px) {
+	header {
+		justify-content: center;
+		padding-right: 0;
+	}
 	.row {
 		flex-direction: column;
 	}
