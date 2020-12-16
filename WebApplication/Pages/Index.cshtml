@@ -4,41 +4,53 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Landing Page</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-	    <link href="~/static/css/style.css" rel="stylesheet"/>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocetna</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="~/static/css/style.css" rel="stylesheet" />
+</head>
     <body>
         <header>
             <div class="btn-login">Prijavi se</div>
             <div class="btn-register">Registruj se</div>
         </header>
 
-        <div class="wrap">
-            <h1 class="moto-text">Pronađi <span style="color:#06BEB6">pravi auto</span> za sebe</h1>
+        <div class="container">
+            <h1 class="moto-text">Pronađi <span style="color:#06BEB6">pravi auto</span> za tebe</h1>
 
             <div class="cards">
-                <p>izdvajamo iz ponude:</p>
+                @{ 
+                    var cars = VehicleBusiness.GetMostExpensive(4);
+                    var k = 0; 
+                    @for(int row = 0; row < 2; row++) {
+                        <div class="row">
+                            @for(var _ = 0; _ < 2; _++) {
+                            <div class="card">
+                                <div class="image-box">
+                                    <img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+                                </div>
+                                <div class="description-box">
+                                    @{ var vehicle = cars[k++]; }
+                                    <h1>@VehicleBusiness.GetManufacturer(vehicle).Name - @VehicleBusiness.GetVehicleModel(vehicle).Name</h1>
+                                    <hr>
+                                    <p><strong>Godište: </strong>@vehicle.Year</p>
+                                    <p><strong>Kilometraža: </strong>@vehicle.Mileage km</p>
+                                    <p><strong>Motor: </strong>@vehicle.CubicCapacity cc</p>
+                                    <p><strong>Tip vozila: </strong>@VehicleBusiness.GetVehicleType(vehicle).Name</p>
+                                    <p><strong>Gorivo: </strong>@vehicle.Fuel</p>
+                                </div>
+                                <div class="div-price">@vehicle.Price &euro;</div>
+                            </div>
+                            }
+                        </div>
+                    }
+                }
+             </div>
 
-                <div class="card-wrap">
-                    @foreach (var vehicle in VehicleBusiness.GetTopThree()) {
-					<div class="card">
-						<div class="description-box">
-							<h1>@VehicleBusiness.GetManufacturer(vehicle).Name - @VehicleBusiness.GetVehicleModel(vehicle).Name</h1>
-							<hr>
-							<p>@vehicle.Color</p>
-							<p>@vehicle.CubicCapacity cc</p>
-							<p>@vehicle.HorsePower ks</p>
-							<p>@VehicleBusiness.GetVehicleType(vehicle).Name</p>
-						</div>
-						<div class="div-price">@vehicle.Price &euro;</div>
-					</div>
-					}
-                </div>
-
-                <div class="btn-showmore"><a href="/Browse">Prikaži više</a></div>
-            </div>
+            <div class="btn-showmore"><a href="/Browse">Prikaži vise</a></div>
         </div>
+
     </body>
 </html>
