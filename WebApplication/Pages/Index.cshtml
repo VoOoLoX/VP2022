@@ -3,8 +3,8 @@
 @{ Layout = "_LayoutEmpty"; ViewBag.Title = "Početna"; }
 
 <header>
-	<div class="btn-login">Prijavi se</div>
-	<div class="btn-register">Registruj se</div>
+	<a class="btn-login" asp-page="">Prijavi se</a>
+    <a class="btn-register" asp-page="">Registruj se</a>
 </header>
 
 <div class="container">
@@ -12,17 +12,17 @@
 
 	<div class="cards">
 		@{
-			var cars = VehicleBusiness.GetMostExpensive(4);
-			var k = 0;
-			@for (int row = 0; row < 2; row++) {
+			var vehicles = VehicleBusiness.GetMostExpensive(4);
+			var index = 0;
+			@for (int _ = 0; _ < 2; _++) {
 				<div class="row">
-					@for (var _ = 0; _ < 2; _++) {
+					@for (var __ = 0; __ < 2; __++) {
 						<div class="card">
 							<div class="image-box">
 								<img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
 							</div>
 							<div class="description-box">
-								@{ var vehicle = cars[k++]; }
+								@{ var vehicle = vehicles[index++]; }
 								<h1>@VehicleBusiness.GetManufacturer(vehicle).Name - @VehicleBusiness.GetVehicleModel(vehicle).Name</h1>
 								<hr>
 								<p><strong>Godište: </strong>@vehicle.Year</p>
