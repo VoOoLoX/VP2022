@@ -1,33 +1,40 @@
 ﻿@page
-@model WebApplication.Pages.BrowseModel
-@using BusinessLayer
+@model BrowseModel
+@{ Layout = "_LayoutSidebar"; ViewBag.Title = "Katalog"; }
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Browse Page</title>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="~/static/css/style.css" rel="stylesheet" />
-</head>
-<body>
-	<div class="wrap">
-		<div class="cards">
-			<div class="card-wrap">
-				@foreach (var vehicle in VehicleBusiness.GetAll()) {
-					<div class="card">
-						<div class="description-box">
-							<h1>@VehicleBusiness.GetManufacturer(vehicle).Name - @VehicleBusiness.GetVehicleModel(vehicle).Name</h1>
-							<hr>
-							<p>@vehicle.Color</p>
-							<p>@vehicle.CubicCapacity cc</p>
-							<p>@vehicle.HorsePower ks</p>
-							<p>@VehicleBusiness.GetVehicleType(vehicle).Name</p>
+
+<div class="row" style="justify-content: center;">
+	<div class="cards container">
+		@{
+			var index = 0;
+			var vehicles = VehicleBusiness.GetAll();
+			var row_count = Math.Ceiling(vehicles.Count / 3f);
+			@for (int _ = 0; _ < row_count; _++) {
+				<div class="row">
+					@for (int __ = 0; __ < 3; __++) {
+						@if (index >= vehicles.Count) {
+							break;
+						}
+						<div class="card">
+							<div class="image-box">
+								<img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+							</div>
+							<div class="description-box">
+								@{ var vehicle = vehicles[index++]; }
+								<h1>@VehicleBusiness.GetManufacturer(vehicle).Name - @VehicleBusiness.GetVehicleModel(vehicle).Name</h1>
+								<hr>
+								<p><strong>Godište: </strong>@vehicle.Year</p>
+								<p><strong>Kilometraža: </strong>@vehicle.Mileage km</p>
+								<p><strong>Motor: </strong>@vehicle.CubicCapacity cc</p>
+								<p><strong>Tip vozila: </strong>@VehicleBusiness.GetVehicleType(vehicle).Name</p>
+								<p><strong>Gorivo: </strong>@vehicle.Fuel</p>
+							</div>
+							<div class="div-price">@vehicle.Price &euro;</div>
 						</div>
-						<div class="div-price">@vehicle.Price &euro;</div>
-					</div>
-				}
-			</div>
-		</div>
+					}
+				</div>
+			}
+		}
+
 	</div>
-</body>
-</html>
+</div>

@@ -43,21 +43,37 @@ namespace DataLayer {
 					var props = typeof(T).GetProperties();
 					foreach(var prop in props) {
 						var column_id = command_result.GetOrdinal(prop.Name);
+						var is_null = command_result.IsDBNull(column_id);
 						switch (prop.PropertyType.Name) {
+							case "Int16":
+								TrySetProperty(obj, prop.Name, is_null ? (short)0 : command_result.GetInt16(column_id));
+								break;
 							case "Int32":
-								TrySetProperty(obj, prop.Name, command_result.GetInt32(column_id));
+								TrySetProperty(obj, prop.Name, is_null ? 0 : command_result.GetInt32(column_id));
+								break;
+							case "Int64":
+								TrySetProperty(obj, prop.Name, is_null ? 0L : command_result.GetInt64(column_id));
+								break;
+							case "Char":
+								TrySetProperty(obj, prop.Name, is_null ? '\0' : command_result.GetChar(column_id));
 								break;
 							case "String":
-								TrySetProperty(obj, prop.Name, command_result.GetString(column_id));
+								TrySetProperty(obj, prop.Name, is_null ? string.Empty : command_result.GetString(column_id));
+								break;
+							case "Float":
+								TrySetProperty(obj, prop.Name, is_null ? 0f : command_result.GetFloat(column_id));
+								break;
+							case "Double":
+								TrySetProperty(obj, prop.Name, is_null ? 0d : command_result.GetDouble(column_id));
 								break;
 							case "Decimal":
-								TrySetProperty(obj, prop.Name, command_result.GetDecimal(column_id));
+								TrySetProperty(obj, prop.Name, is_null ? 0m : command_result.GetDecimal(column_id));
 								break;
 							case "Boolean":
-								TrySetProperty(obj, prop.Name, command_result.GetBoolean(column_id));
+								TrySetProperty(obj, prop.Name, is_null ? false : command_result.GetBoolean(column_id));
 								break;
 							case "DateTime":
-								TrySetProperty(obj, prop.Name, command_result.GetDateTime(column_id));
+								TrySetProperty(obj, prop.Name, is_null ? DateTime.MinValue : command_result.GetDateTime(column_id));
 								break;
 							case "Byte[]":
 								var size = command_result.GetBytes(column_id, 0, null, 0, 0);
