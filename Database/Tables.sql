@@ -15,18 +15,20 @@ CREATE TABLE [Roles] (
 	PRIMARY KEY (ID)
 );
 
+SET IDENTITY_INSERT [Roles] ON
+INSERT INTO [Roles] (ID, Name) VALUES (1, N'Customer')
+INSERT INTO [Roles] (ID, Name) VALUES (2, N'Manager')
+INSERT INTO [Roles] (ID, Name) VALUES (3, N'Admin')
+SET IDENTITY_INSERT [Roles] OFF
+
 CREATE TABLE [Users] (
 	ID int NOT NULL IDENTITY,
 	Email varchar(100) NULL,
 	Password varchar(255) DEFAULT NULL,
-	OrderID int DEFAULT NULL,
-	RoleID int DEFAULT NULL,
+	RoleID int DEFAULT 1,
 	PRIMARY KEY (ID),
 	FOREIGN KEY (RoleID) REFERENCES [Roles] (ID)
 );
-
--- CREATE INDEX OrderID ON [Users] (OrderID);
--- CREATE INDEX RoleID ON [Users] (RoleID);
 
 CREATE TABLE [Manufacturers] (
 	ID int NOT NULL IDENTITY,
@@ -93,12 +95,6 @@ CREATE TABLE [Vehicles] (
 	FOREIGN KEY (SecurityID) REFERENCES Security (ID)
 );
 
--- CREATE INDEX ManufacturerID ON [Vehicles] (ManufacturerID);
--- CREATE INDEX ModelID ON [Vehicles] (ModelID);
--- CREATE INDEX TypeID ON [Vehicles] (TypeID);
--- CREATE INDEX FeaturesID ON [Vehicles] (FeaturesID);
--- CREATE INDEX SecurityID ON [Vehicles] (SecurityID);
-
 CREATE TABLE [Images] (
 	ID int NOT NULL IDENTITY,
 	Blob varbinary(max),
@@ -106,8 +102,6 @@ CREATE TABLE [Images] (
 	PRIMARY KEY (ID),
 	FOREIGN KEY (VehicleID) REFERENCES Vehicles (ID)
 );
-
--- CREATE INDEX VehicleID ON [Images] (VehicleID);
 
 CREATE TABLE [SoldVehicles] (
 	ID int NOT NULL IDENTITY,
@@ -120,7 +114,3 @@ CREATE TABLE [SoldVehicles] (
 	FOREIGN KEY (UserID) REFERENCES [Users] (ID),
 	FOREIGN KEY (OrderID) REFERENCES [Orders] (ID)
 );
-
--- CREATE INDEX VehicleID ON [SoldVehicles] (VehicleID);
--- CREATE INDEX UserID ON [SoldVehicles] (UserID);
--- CREATE INDEX OrderID ON [SoldVehicles] (OrderID);

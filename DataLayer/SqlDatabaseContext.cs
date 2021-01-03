@@ -98,10 +98,14 @@ namespace DataLayer {
 
 				var prop_arguments = string.Join(", ", prop_list);
 
+				//FIX Add option to choose columns to insert into
+
 				var command = new SqlCommand() {
 					CommandText = $"INSERT INTO {table} VALUES ({prop_arguments})",
 					Connection = Connection
 				};
+
+				//FIX Check for null values
 
 				foreach (var prop in prop_list) {
 					var obj_prop_str = prop.Replace("@", "");
