@@ -1,41 +1,44 @@
 ﻿@page
 @model BrowseModel
-@{ Layout = "_LayoutSidebar"; ViewBag.Title = "Katalog"; ViewBag.Style = "/static/css/styleIndex.css"; }
+@{ Layout = "_LayoutSidebar"; ViewBag.Title = "Katalog"; ViewBag.Style = "/static/css/styleBrowse.css"; }
 
-
-<div class="row" style="justify-content: center;">
-	<div class="cards container">
-		@{
-			var index = 0;
-			var vehicles = VehicleBusiness.GetAll();
-			var row_count = Math.Ceiling(vehicles.Count / 3f);
-			if (vehicles.Count > 0) {
-				@for (int _ = 0; _ < row_count; _++) {
-					<div class="row">
-						@for (int __ = 0; __ < 3; __++) {
-							@if (index >= vehicles.Count) {
-								break;
-							}
-							<div class="card">
-								<div class="image-box">
-									<img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
-								</div>
-								<div class="description-box">
-									@{ var vehicle = vehicles[index++]; }
-									<h1>@VehicleBusiness.GetManufacturer(vehicle)?.Name - @VehicleBusiness.GetVehicleModel(vehicle)?.Name</h1>
-									<hr>
-									<p><strong>Godište: </strong>@vehicle.Year</p>
-									<p><strong>Kilometraža: </strong>@vehicle.Mileage km</p>
-									<p><strong>Motor: </strong>@vehicle.CubicCapacity cc</p>
-									<p><strong>Tip vozila: </strong>@VehicleBusiness.GetVehicleType(vehicle)?.Name</p>
-									<p><strong>Gorivo: </strong>@vehicle.Fuel</p>
-								</div>
-								<div class="div-price">@vehicle.Price &euro;</div>
-							</div>
-						}
-					</div>
-				}
-			}
-		}
-	</div>
-</div>
+        <div class="row">
+            <div class="cards container">
+                @{
+                    var index = 0;
+                    var vehicles = VehicleBusiness.GetAll();
+                    var row_count = Math.Ceiling(vehicles.Count / 3f);
+                    if (vehicles.Count > 0)
+                    {
+                        @for (int _ = 0; _ < row_count; _++)
+                        {
+                            <div class="row">
+                                @for (int __ = 0; __ < 3; __++)
+                                {
+                                    @if (index >= vehicles.Count)
+                                    {
+                                        break;
+                                    }
+                                    <div class="card">
+                                        <div class="image-box">
+                                            <img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+                                        </div>
+                                        <div class="description-box">
+                                            @{ var vehicle = vehicles[index++]; }
+                                            <h1>@VehicleBusiness.GetManufacturer(vehicle)?.Name - @VehicleBusiness.GetVehicleModel(vehicle)?.Name</h1>
+                                            <hr>
+                                            <p><strong>Godište: </strong>@vehicle.Year</p>
+                                            <p><strong>Kilometraža: </strong>@vehicle.Mileage km</p>
+                                            <p><strong>Motor: </strong>@vehicle.CubicCapacity cc</p>
+                                            <p><strong>Tip vozila: </strong>@VehicleBusiness.GetVehicleType(vehicle)?.Name</p>
+                                            <p><strong>Gorivo: </strong>@vehicle.Fuel</p>
+                                        </div>
+                                        <div class="div-price">@vehicle.Price &euro;</div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </div>
