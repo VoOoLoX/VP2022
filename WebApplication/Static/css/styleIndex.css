@@ -52,7 +52,9 @@ header {
 }
 
 .btn-login:hover {
-	background: #ecf2f4;
+	background: #06BEB6;
+	color: white;
+	border: 1px solid #06BEB6;
 }
 
 .btn-register {
