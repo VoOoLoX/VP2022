@@ -5,22 +5,25 @@
 <div class="container">
 
     <div class="left">
-        <img src="~/Static/pics/logo.svg" alt="">
+        <img src="/static/pics/logo.svg" alt="">
         <h1>Pronađi pravi auto za sebe, <span>KOD NAS</span>!</h1>
     </div>
     
 	<div class="right">
 		<h2>Dobrodosli nazad!</h2>
 
-		<form>
-			<label>Korisničko ime:</label>
-			<input type="text">
-			<label>Šifra:</label>
-			<input type="text">
+		<form id="login-form">
+			<label for="email">E-mail:</label>
+			<input type="email" name="email" id="email">
+
+			<label for="password">Šifra:</label>
+			<input type="password" name="password" id="password">
+
+			<label id="result-message"></label>
 		</form>
 
 		<div class="right-bottom">
-			<a class="btn-login">Prijavi se</a>
+			<a class="btn-login" onclick="login()">Prijavi se</a>
 			<div class="info-wrap">
 				<p>Nemaš nalog?</p>
 				<a asp-page="/Register">Registruj se</a>

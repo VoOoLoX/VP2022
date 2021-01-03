@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -24,6 +23,12 @@ namespace API {
 		public IConfiguration Configuration { get; }
 
 		public void ConfigureServices(IServiceCollection services) {
+			services.AddCors(options => {
+				options.AddDefaultPolicy(
+					builder => {
+						builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+					});
+			});
 
 			services.AddControllers();
 
@@ -55,6 +60,8 @@ namespace API {
 			app.UseHttpsRedirection();
 
 			app.UseRouting();
+
+			app.UseCors();
 
 			app.UseAuthentication();
 
