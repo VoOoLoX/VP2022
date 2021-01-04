@@ -66,31 +66,29 @@ const refresh_vehicles = async () => {
 	}
 
 	await api_call('Browse', 'POST', data, (res) => {
-		//console.log(res)
-		//console.log(res.body.vehicles)
 		if (res.status == 200) {
 			$("#browse").innerHTML = ''
 
 			res.body.vehicles.forEach((vehicle) => {
-				//console.log(vehicle)
-
 				var card = get_nodes(`
-				<div class="card">
-					<div class="image-box">
-						<img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+				<a href="/Vehicle/${vehicle.id}">
+					<div class="card">
+						<div class="image-box">
+							<img src="https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg" alt="">
+						</div>
+						<div class="description-box">
+							<h1>${vehicle.manufacturer} - ${vehicle.model}</h1>
+							<hr>
+							<p><strong>Godište: </strong>${vehicle.year}</p>
+							<p><strong>Kilometraža: </strong>${vehicle.milage} km</p>
+							<p><strong>Motor: </strong>${vehicle.cubicCapacity} cc</p>
+							<p><strong>Tip vozila: </strong>${vehicle.vehicleType}</p>
+							<p><strong>Gorivo: </strong>${vehicle.fuel} </p>
+						</div>
+						<div class="div-price">${vehicle.price} &euro;</div>
 					</div>
-					<div class="description-box">
-						<h1>${vehicle.manufacturer} - ${vehicle.model}</h1>
-						<hr>
-						<p><strong>Godište: </strong>${vehicle.year}</p>
-						<p><strong>Kilometraža: </strong>${vehicle.milage} km</p>
-						<p><strong>Motor: </strong>${vehicle.cubicCapacity} cc</p>
-						<p><strong>Tip vozila: </strong>${vehicle.vehicleType}</p>
-						<p><strong>Gorivo: </strong>${vehicle.fuel} </p>
-					</div>
-					<div class="div-price">${vehicle.price} &euro;</div>
-				</div>`)
-				//console.log(card[0])
+				</a>`)
+
 				$("#browse").appendChild(card[0])
 			})
 		}
