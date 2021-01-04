@@ -1,6 +1,6 @@
 ﻿@page
 @model LoginModel
-@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Prijavi se"; ViewBag.Style = "/static/css/styleLogin.css"; }
+@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Prijavi se"; ViewBag.Style = "/static/css/styleLoginRegister.css"; }
 
 <div class="container">
 
@@ -10,20 +10,20 @@
     </div>
     
 	<div class="right">
-		<h2>Dobrodosli nazad!</h2>
+		<h2>Prijavi se</h2>
 
-		<form id="login-form">
+		<form id="login-form" onsubmit="event.preventDefault()">
 			<label for="email">E-mail:</label>
-			<input type="email" name="email" id="email">
+			<input type="email" name="email" id="email" required autofocus>
 
 			<label for="password">Šifra:</label>
-			<input type="password" name="password" id="password">
+			<input type="password" name="password" id="password" required>
 
 			<label id="result-message"></label>
 		</form>
 
 		<div class="right-bottom">
-			<a class="btn-login" onclick="login()">Prijavi se</a>
+			<input type="submit" class="btn" onclick="login()" form="login-form" value="Prijavi se"/>
 			<div class="info-wrap">
 				<p>Nemaš nalog?</p>
 				<a asp-page="/Register">Registruj se</a>
