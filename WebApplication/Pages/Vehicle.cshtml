@@ -1,7 +1,71 @@
 ﻿@page "{id:int}"
 @model VehicleModel
-@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Vehicle"; ViewBag.Style = "/static/css/styleIndex.css"; }
+@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Vehicle"; ViewBag.Style = "/static/css/styleVehicle.css"; }
 
 <div class="container">
+    <div class="image-box">
+        <div class="left-arrow">
+            <img src="assets/back.svg" alt="">
+        </div>
+        <div class="images">
+            <img src="https://2020hondausa.com/wp-content/uploads/2019/01/2020-Honda-Civic-Hybrid-Exterior.png" alt="">
+        </div>
+        <div class="right-arrow">
+            <img src="assets/next.svg" alt="">
+        </div>
+    </div>
 
+    <div class="info-container">
+        <div class="info-container-up">
+            <h1>Toyota supra</h1>
+            <div class="price">11.000e</div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="info-container-down">
+            <div class="box1">
+                <h3>Tehnički podaci:</h3>
+
+                <p class="info-p">Zapremina motora:</p>
+                <p class="info-p">Snaga motora:</p>
+                <p class="info-p">Tip vozila: </p>
+                <p class="info-p">Gorivo: </p>
+                <p class="info-p">Kilometraza</p>
+            </div>
+
+            <div class="box2">
+                <h3>Dodaci:</h3>
+
+                <p class="info-p">Tempomat</p>
+                <p class="info-p">Parking senzor</p>
+                <p class="info-p">Elektricni prozori</p>
+                <p class="info-p">Siber</p>
+                <p class="info-p">Xenon farovi</p>
+                <p class="info-p">Multimedija</p>
+                <p class="info-p">Navigacija</p>
+                <p class="info-p">KLima</p>
+            </div>
+
+            <div class="box3">
+                <h3>Sigurnost: </h3>
+
+                <p class="info-p">Airbag</p>
+                <p class="info-p">ESP</p>
+                <p class="info-p">ASR</p>
+                <p class="info-p">Childlock</p>
+                <p class="info-p">Blokada motora</p>
+                <p class="info-p">Centralno zakljucavanje</p>
+            </div>
+        </div>
+        <div class="description-box">
+            <h3>Opis vozila: </h3>
+
+            <p class="info-p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim eaque qui obcaecati similique cum molestias veniam ullam dolores perspiciatis sit molestiae temporibus ratione provident numquam exercitationem dolor, voluptas, excepturi voluptatum.</p>
+        </div>
+
+        <div class="nav-back">
+            <img src="assets/undo.svg" alt="Nazad">
+        </div>
+    </div>
 </div>
