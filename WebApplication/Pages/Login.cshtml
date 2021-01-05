@@ -2,13 +2,20 @@
 @model LoginModel
 @{ Layout = "_LayoutEmpty"; ViewBag.Title = "Prijavi se"; ViewBag.Style = "/static/css/styleLoginRegister.css"; }
 
+<script>
+	logged_in(() => {
+		document.location.href = '../'
+	})
+</script>
+
+
 <div class="container">
 
-    <div class="left">
-        <img src="/static/pics/logo.svg" alt="">
-        <h1>Pronađi pravi auto za sebe, <span>KOD NAS</span>!</h1>
-    </div>
-    
+	<div class="left">
+		<img src="/static/pics/logo.svg" alt="">
+		<h1>Pronađi pravi auto za sebe, <span>KOD NAS</span>!</h1>
+	</div>
+
 	<div class="right">
 		<h2>Prijavi se</h2>
 
@@ -23,7 +30,7 @@
 		</form>
 
 		<div class="right-bottom">
-			<input type="submit" class="btn" onclick="login()" form="login-form" value="Prijavi se"/>
+			<input type="submit" class="btn" onclick="login()" form="login-form" value="Prijavi se" />
 			<div class="info-wrap">
 				<p>Nemaš nalog?</p>
 				<a asp-page="/Register">Registruj se</a>
