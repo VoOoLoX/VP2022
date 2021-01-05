@@ -117,10 +117,6 @@ input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hove
     width: 100%;
 }
 
-.btn:focus {
-    border: 1.5px solid white;
-}
-
 .btn:hover {
     cursor: pointer;
     background: #06BEB6;
