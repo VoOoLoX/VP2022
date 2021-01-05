@@ -8,6 +8,7 @@ namespace Shared {
 		public bool Airbag { get; set; }
 		public bool ESP { get; set; }
 		public bool ASR { get; set; }
+		public bool ABS { get; set; }
 		public bool ChildLock { get; set; }
 		public bool Immobiliser { get; set; }
 		public bool CentralLocking { get; set; }

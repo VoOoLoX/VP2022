@@ -64,6 +64,7 @@ CREATE TABLE [Features] (
 
 CREATE TABLE [Security] (
 	ID int NOT NULL IDENTITY,
+	ABS bit DEFAULT NULL,
 	Airbag bit DEFAULT NULL,
 	ESP bit DEFAULT NULL,
 	ASR bit DEFAULT NULL,
@@ -82,6 +83,7 @@ CREATE TABLE [Vehicles] (
 	Fuel varchar(20) DEFAULT NULL,
 	CubicCapacity int DEFAULT NULL,
 	HorsePower int DEFAULT NULL,
+	Description varchar(1000) DEFAULT NULL,
 	ManufacturerID int DEFAULT NULL,
 	ModelID int DEFAULT NULL,
 	TypeID int DEFAULT NULL,
