@@ -5,8 +5,250 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="740" Width="1400">
     <Grid>
+        <Canvas HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="-0,0,0,0">
+            <Rectangle Width="299" Height="1085" StrokeThickness="3">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#0F2027" Offset="0"/>
+                        <GradientStop Color="#2A4E5E" Offset="0.5"/>
+                        <GradientStop Color="#2C5364" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label x:Name="Label1"
+    Content="Zdravo, Admin123!"  
+    Canvas.Left="56" Canvas.Top="138" TextBlock.Foreground="White"
+    FontSize="18" Style="{StaticResource CustomFont}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="20.7px"/>
+            <Rectangle Width="299px" Height="45px" Canvas.Left="1" Canvas.Top="192">
+                <Rectangle.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#183947">
 
+                        </GradientStop>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label x:Name="labelPoc"
+    Content="Početna"  
+    Canvas.Left="64" Canvas.Top="203" TextBlock.Foreground="White"
+    FontSize="18" Style="{StaticResource CustomFont1}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="20.7px"/>
+
+            <Label x:Name="labelStanje"
+    Content="Automobili na stanju"
+    Canvas.Left="64" Canvas.Top="248" TextBlock.Foreground="#437f99"
+    FontSize="18" Style="{DynamicResource CustomFont1}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="21.78px"/>
+            <TextBlock x:Name="text1" Margin="5,8,0,0" />
+            <Label x:Name="labelUnos"
+    Content="Unos automobila"
+    Canvas.Left="64" Canvas.Top="282" TextBlock.Foreground="#437f99"
+    FontSize="18" Style="{StaticResource CustomFont1}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="21.78px">
+
+            </Label>
+
+            <Label x:Name="labelProdat"
+    Content="Prodati automobili"
+    Canvas.Left="64" Canvas.Top="314" TextBlock.Foreground="#437f99"
+    FontSize="18" Style="{StaticResource CustomFont1}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="21.78px"/>
+
+            <Rectangle Canvas.Left="81.03" Canvas.Top="68.76"  Height="40.11" Width="137.84">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4120.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="173.81" Canvas.Top="71.97"  Height="13.95" Width="39.72">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4124.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="145.03" Canvas.Top="100.08"  Height="1.69" Width="69.68">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4128.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="146.8" Canvas.Top="87.39"  Height="12.43" Width="59.99">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4132.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="171.31" Canvas.Top="76.48"  Height="3.3" Width="12.06">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4136.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="149.35" Canvas.Top="72.65"  Height="12.4" Width="12.19">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4140.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="203.95" Canvas.Top="75.98"  Height="9.01" Width="8.15">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4144.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="98.35" Canvas.Top="59.34"  Height="19.4" Width="52.54">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4148.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="111.26" Canvas.Top="61.62"  Height="11.27" Width="1.51">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4152.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="149.97" Canvas.Top="63.58"  Height="5.72" Width="5.05">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4156.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="95.72" Canvas.Top="68.35"  Height="11.46" Width="3.95">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4160.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="94px" Canvas.Top="100.63"  Height="2.03px" Width="27.1">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4164.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="97.5" Canvas.Top="75.39"  Height="25.01" Width="43.76">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4168.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="85.37" Canvas.Top="90.81"  Height="25.04" Width="12.89">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4176.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="123.11" Canvas.Top="81.56"  Height="39.02" Width="26.01">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4181.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="179.51" Canvas.Top="106.94"  Height="11.05" Width="23.61">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\path4185.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Canvas>
+        <Canvas>
+            <Label x:Name="labelEvid" 
+                Content="Evidencija"
+    Canvas.Left="458" Canvas.Top="80" TextBlock.Foreground="#437f99"
+    FontSize="36px" Style="{DynamicResource CustomFont}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="40.14px"/>
+
+
+            <Rectangle
+    Width="869"
+    Stroke="#437f99" StrokeThickness="2"
+    Canvas.Left="408"
+    Canvas.Top="134"/>
+
+            <Rectangle
+    Width="256"
+    Height="99"
+    Fill="#FFFFFF"
+    RadiusX="20" RadiusY="20"
+    Canvas.Left="406"
+    Canvas.Top="155">
+                <Rectangle.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="-100" ShadowDepth="2" Softness=".2"/>
+                </Rectangle.BitmapEffect>
+            </Rectangle>
+
+
+            <Label x:Name="labelnastanju" 
+                Content="Evidencija na stanju"
+    Canvas.Left="455" Canvas.Top="223" TextBlock.Foreground="#437f99"
+    FontSize="14" Style="{StaticResource CustomFont}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="20.7px"/>
+
+            <Rectangle
+    Width="256"
+    Height="99"
+    Fill="#FFFFFF"
+    RadiusX="20" RadiusY="20"
+    Canvas.Left="697"
+    Canvas.Top="155">
+                <Rectangle.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="-100" ShadowDepth="2" Softness=".2"/>
+                </Rectangle.BitmapEffect>
+            </Rectangle>
+
+            <Label x:Name="labelProdati" 
+                Content="Prodati automobili"
+    Canvas.Left="760" Canvas.Top="221" TextBlock.Foreground="#437f99"
+    FontSize="14" Style="{StaticResource CustomFont}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="20.7px"/>
+
+            <Rectangle
+    Width="319px"
+    Height="99"
+    Fill="#437f99"
+    RadiusX="20" RadiusY="20"
+    Canvas.Left="999"
+    Canvas.Top="155">
+                <Rectangle.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="-100" ShadowDepth="2" Softness=".2"/>
+                </Rectangle.BitmapEffect>
+            </Rectangle>
+
+            <Label x:Name="labelaProfit" 
+                Content="Profit od prodaje"
+    Canvas.Left="1101" Canvas.Top="221" TextBlock.Foreground="white"
+    FontSize="14" Style="{StaticResource CustomFont}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="20.7px"/>
+
+            <Label x:Name="labelStat" 
+                Content="Statistike"
+    Canvas.Left="460" Canvas.Top="382" TextBlock.Foreground="#437f99"
+    FontSize="36px" Style="{StaticResource CustomFont}" FontStyle="Normal"
+    FontWeight="Normal" TextBlock.LineHeight="20.7px"/>
+
+            <Rectangle
+    Width="869"
+    Stroke="#437f99" StrokeThickness="2"
+    Canvas.Left="410"
+    Canvas.Top="436"/>
+
+            <Rectangle Canvas.Left="27" Canvas.Top="204"  Height="19" Width="19">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\Vector.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="27" Canvas.Top="251"  Height="19" Width="19">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\auto.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="27" Canvas.Top="284"  Height="19" Width="19">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\olovka.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="27" Canvas.Top="316"  Height="19" Width="19">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\korpa.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="406" Canvas.Top="76"  Height="44" Width="36">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\lista.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Canvas.Left="405" Canvas.Top="382"  Height="40" Width="40">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="C:\Users\Nikola\Desktop\PROJEKAT123\pslike\stat.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Canvas>
     </Grid>
 </Window>

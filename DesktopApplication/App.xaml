@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:DesktopApplication"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="CustomFont">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Comfortaa">
+            </Setter>
+        </Style>
+        <Style x:Key="CustomFont1">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Fonts/#Inter">
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
