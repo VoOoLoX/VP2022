@@ -38,6 +38,7 @@ namespace API {
 
 			services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 					.AddJwtBearer(options => {
+						options.SaveToken = true;
 						options.TokenValidationParameters = new TokenValidationParameters {
 							ValidateLifetime = true,
 							ValidateAudience = true,
@@ -45,7 +46,19 @@ namespace API {
 							ValidateIssuerSigningKey = true,
 							ValidAudience = Configuration["JWT:Audience"],
 							ValidIssuer = Configuration["JWT:Issuer"],
-							IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Key"]))
+							IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Key"])),
+							ClockSkew = TimeSpan.Zero
+						};
+						options.Events = new JwtBearerEvents {
+							OnAuthenticationFailed = context =>
+							{
+								if (context.Exception.GetType() == typeof(SecurityTokenExpiredException)) {
+									context.Response.ContentType = "application/json; charset=utf-8";
+									context.Response.StatusCode = 401;
+									context.Response.BodyWriter.WriteAsync(Encoding.UTF8.GetBytes($"{{\"message\":\"Token expired.\"}}"));
+								}
+								return Task.CompletedTask;
+							}
 						};
 					});
 		}

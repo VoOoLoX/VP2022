@@ -35,9 +35,17 @@
 	<div class="content">
 		<div class="row">
 			<div></div>
-			<div id="browse" class="cards"></div>
+			<div id="vehicles" class="cards"></div>
 		</div>
 	</div>
 </div>
 
-<script defer>refresh_vehicles()</script>
+<script>
+	generate_links()
+
+	logged_in(() => {
+		$('.sidebar-bottom').style.display = 'none'
+	})
+
+	browse_vehicles()
+</script>
