@@ -1,0 +1,54 @@
+﻿@page
+@model OrderModel
+@{ Layout = "_LayoutEmpty"; ViewBag.Title = "Rezerviši auto"; ViewBag.Style = "/static/css/styleOrder.css"; }
+
+<div class="container">
+    <h1 class="moto">Rezervišite vozilo za <span>Vas</span>!</h1>
+
+    <div class="wrap-box">
+        <div class="order-left">
+            <form>
+                <div class="wrapp">
+                    <div class="wrap">
+                        <label>Ime:</label>
+                        <input type="text">
+                    </div>
+                    <div class="wrap">
+                        <label>Prezime:</label>
+                        <input type="text">
+                    </div>
+                </div>
+                <label>Država:</label>
+                <input type="text">
+                <label>Grad:</label>
+                <input type="text">
+                <label>Ulica:</label>
+                <input type="text">
+                <label>Poštanski broj:</label>
+                <input type="text">
+            </form>
+        </div>
+        <div class="order-right">
+            <div class='card'>
+                <div class='image-box'>
+                    <img src='https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg' alt='' />
+                </div>
+                <div class='description-box'>
+                    <h1>Toyota Supra</h1>
+                    <hr>
+                    <p><strong>Godište: </strong>${vehicle.year}</p>
+                    <p><strong>Kilometraža: </strong>${vehicle.milage} km</p>
+                    <p><strong>Motor: </strong>${vehicle.cubicCapacity} cc</p>
+                    <p><strong>Tip vozila: </strong>${vehicle.vehicleType}</p>
+                    <p><strong>Gorivo: </strong>${vehicle.fuel} </p>
+                </div>
+                <div class='div-price'>${vehicle.price} &euro;</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-footer">
+        <div class="btn-cancel">Otkaži</div>
+        <div class="btn-submit">Potvrdi</div>
+    </div>
+</div>

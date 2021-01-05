@@ -1,0 +1,224 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Inter:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap-box, .wrapp {
+    display: flex;
+}
+.wrap-box {
+    justify-content: center;
+    align-items:center;
+    margin: 40px 0;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+    .wrap:nth-child(2) {
+        margin-left: 5px;
+    }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background: #EDEDED;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    background: white;
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25), 0 -4px 4px 0 rgba(0,0,0,0.25);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.container .moto {
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    font-size: 3em;
+    margin-top: 0.5em;
+}
+
+.container .moto::after {
+    content: '';
+    display: block;
+    background: #06BEB6;
+    width: 35%;
+    height: 2px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.container h1 span {
+    color: #06BEB6;
+}
+
+.order-left, .order-right {
+    padding: 20px;
+}
+
+form label {
+    color: #437F99;
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type="text"] {
+    background: transparent;
+    color: rgb(43, 43, 43);
+    border: 1.7px solid #437F99;
+    padding: 12px 12px;
+    border-radius: 30px;
+    font-family: 'Comfortaa', cursive;
+    margin: 5px 0;
+    font-size: 0.9em;
+    transition: 0.5s all;
+    width: 100%;
+}
+
+input[type="text"]:focus {
+    border: 1.7px solid #06BEB6;
+}
+
+input[type="text"]:hover {
+    border: 1.7px solid #06BEB6;
+}
+
+.card {
+    width: 300px;
+    min-height: 400px;
+    flex: 1;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25), 0 -4px 4px 0 rgba(0,0,0,0.25);
+    margin: 0 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.7s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.card .description-box {
+    font-family: 'Comfortaa', cursive;
+    font-size: 0.8em;
+    padding: 15px;
+}
+
+.card .description-box p {
+    padding: 2px 0;
+    font-size: 0.9em;
+}
+
+.card .description-box hr {
+    background-color: #4E4E4E;
+    margin: 5px 0;
+}
+
+.div-price {
+    color: white;
+    background-color: #A0BF48;
+    border-radius: 20px;
+    width: 116px;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    padding: 5px 0;
+    float: right;
+    margin: 0 10px 10px 0;
+    position: relative;
+    font-weight: bold;
+    align-self: flex-end;
+}
+.order-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5em 0;
+}
+
+.btn-cancel {
+    background: #ECECEC;
+    width: 200px;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 20px;
+    margin-right: 5px;
+    color: #437F99;
+    cursor: pointer;
+    transition: 0.5s all;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-submit {
+    background: #437F99;
+    width: 200px;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: 5px;
+    color: #ECECEC;
+    cursor: pointer;
+    transition: 0.5s all;
+    font-family: 'Roboto', sans-serif;
+}
+
+    .btn-submit:hover, .btn-cancel:hover {
+        background: #06BEB6;
+        color: white;
+    }
+
+@media screen and (max-width: 768px) {
+    .wrapp {
+        flex-direction:column;
+    }
+    body {
+        height: 100%;
+    }
+}
+@media screen and (max-width: 650px) {
+    .wrap-box {
+        flex-direction: column;
+    }
+    .order-left {
+        order: 2;
+        width: 100%;
+    }
+    .order-right {
+        order: 1;
+    }
+}
