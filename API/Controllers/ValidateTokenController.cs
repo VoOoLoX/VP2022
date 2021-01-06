@@ -17,9 +17,9 @@ namespace API.Controllers {
 			var access_token = await HttpContext.GetTokenAsync("Bearer", "access_token");
 
 			if (string.IsNullOrEmpty(access_token))
-				return Unauthorized(new { message = "Token is missing." });
+				return Unauthorized(new { message = "Token sesije nije pronađen." });
 
-			return Ok(new { message = "Token is valid." });
+			return Ok(new { message = "Token je validan." });
 		}
 	}
 }

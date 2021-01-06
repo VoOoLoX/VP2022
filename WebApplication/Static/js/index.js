@@ -64,7 +64,16 @@ const logged_in = async (callback) => {
 		headers: {
 			'Authorization': `Bearer ${get_cookie('jwt')}`
 		},
-	}).then(r => { if (r.status == 200) callback(r.status) })
+	}).then(r => { if (r.status == 200) callback() })
+}
+
+const logged_out = async (callback) => {
+	await fetch(`${api}/ValidateToken`, {
+		method: 'GET',
+		headers: {
+			'Authorization': `Bearer ${get_cookie('jwt')}`
+		},
+	}).then(r => { if (r.status != 200) callback(r.status) })
 }
 
 const open_vehicle = (id) => {
@@ -86,7 +95,7 @@ const create_vehicle_card = (vehicle) => {
 			<p><strong>Tip vozila: </strong>${vehicle.vehicleType}</p>
 			<p><strong>Gorivo: </strong>${vehicle.fuel} </p>
 		</div>
-		<div class='div-price'>${vehicle.price} &euro;</div>
+		<div class='card-price'>${vehicle.price} &euro;</div>
 	</div>`)[0]
 
 	return card
@@ -121,19 +130,27 @@ const browse_vehicles = async () => {
 		yearEnd: Number(form_data.get('year_end')),
 		priceStart: Number(form_data.get('price_start')),
 		priceEnd: Number(form_data.get('price_end')),
+		sort: $('#sort').value
 	}
 
 	await api_call('Browse', 'POST', data, (res) => {
-		if (res.status == 200)
+		if (res.status == 200) {
 			render_vehicles($('#vehicles'), res.body.vehicles)
+			$('#results').innerText = `${res.body.results} rezultata`
+		}
 	})
 }
 
-const generate_links = () => {
-	var buttons = _('[page]')
-	buttons.forEach((button) => {
+document.addEventListener('DOMContentLoaded', () => {
+	_('[page]').forEach((button) => {
 		button.addEventListener('click', () => {
 			location.href = button.getAttribute('page')
 		})
 	})
-}
+
+	if (get_cookie('jwt')) {
+		window.setInterval(logged_out, 5000, (status) => {
+			logout()
+		})
+	}
+})

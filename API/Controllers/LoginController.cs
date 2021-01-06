@@ -63,11 +63,11 @@ namespace API.Controllers {
 				var correct_password = hasher.VerifyHashedPassword(login_info.Email, user.Password, login_info.Password);
 
 				if (correct_password == PasswordVerificationResult.Success)
-					return Ok(new { message = "Login successful.", token = GenerateJWT(user) });
+					return Ok(new { message = "Uspešna prijava.", token = GenerateJWT(user) });
 				else
-					return BadRequest(new { message = "Invalid credentials." });
+					return BadRequest(new { message = "Neispravni podaci." });
 			} else {
-				return BadRequest(new { message = "User does not exist." });
+				return BadRequest(new { message = "Korisnik nije registrovan." });
 			}
 		}
 	}

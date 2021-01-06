@@ -4,12 +4,11 @@
 
 <script>
 	logged_in(() => {
-		document.location.href = '../'
+		history.back()
 	})
 </script>
 
-<div class="container">
-
+<div class="wrapper">
 	<div class="left">
 		<img src="/static/pics/logo.svg" alt="">
 		<h1>Pronađi pravi auto za sebe, <span>KOD NAS</span>!</h1>
@@ -18,7 +17,7 @@
 	<div class="right">
 		<h2>Registruj se</h2>
 
-		<form id="register-form" onsubmit="event.preventDefault()">
+		<form action="javascript:;" onsubmit="register()" id="register-form">
 			<label for="email">E-mail:</label>
 			<input type="email" name="email" id="email" required autofocus>
 
@@ -28,16 +27,15 @@
 			<label for="confirm_password">Potvrdi šifra:</label>
 			<input type="password" name="confirm_password" id="confirm_password" required>
 
-			<label id="result-message"></label>
+			<label id="result-message">&nbsp;</label>
 		</form>
 
 		<div class="right-bottom">
-			<input type="submit" class="btn" onclick="register()" form="register-form" value="Registruj se" />
+			<button type="submit" form="register-form">Registruj se</button>
 			<div class="info-wrap">
 				<p>Imaš nalog?</p>
 				<a asp-page="/Login">Prijavi se</a>
 			</div>
 		</div>
 	</div>
-
 </div>

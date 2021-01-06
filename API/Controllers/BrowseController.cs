@@ -19,6 +19,7 @@ namespace API.Controllers {
 			public int YearEnd { get; set; }
 			public decimal PriceStart { get; set; }
 			public decimal PriceEnd { get; set; }
+			public string Sort { get; set; }
 		}
 
 		[AllowAnonymous]
@@ -31,9 +32,9 @@ namespace API.Controllers {
 			var vehicles = VehicleBusiness.GetAll();
 
 			if (!string.IsNullOrEmpty(browse_info.Manufacturer))
-				vehicles = vehicles.Where(v => VehicleBusiness.GetManufacturer(v).Name.ToLower() == browse_info.Manufacturer.ToLower()).ToList();
+				vehicles = vehicles.Where(v => VehicleBusiness.GetManufacturer(v).Name.ToLower().Contains(browse_info.Manufacturer.ToLower())).ToList();
 			if (!string.IsNullOrEmpty(browse_info.Model))
-				vehicles = vehicles.Where(v => VehicleBusiness.GetVehicleModel(v).Name.ToLower() == browse_info.Model.ToLower()).ToList();
+				vehicles = vehicles.Where(v => VehicleBusiness.GetVehicleModel(v).Name.ToLower().Contains(browse_info.Model.ToLower())).ToList();
 			if (browse_info.YearStart != 0)
 				vehicles = vehicles.Where(v => v.Year >= browse_info.YearStart).ToList();
 			if (browse_info.YearEnd != 0)
@@ -54,6 +55,23 @@ namespace API.Controllers {
 				VehicleType = VehicleBusiness.GetVehicleType(v).Name,
 				Fuel = v.Fuel
 			}).ToList();
+
+			switch (browse_info.Sort.ToLower()) {
+				case "price_desc":
+					results = results.OrderByDescending(v => v.Price).ToList();
+					break;
+				case "price_asc":
+					results = results.OrderBy(v => v.Price).ToList();
+					break;
+				case "year_desc":
+					results = results.OrderByDescending(v => v.Year).ToList();
+					break;
+				case "year_asc":
+					results = results.OrderBy(v => v.Year).ToList();
+					break;
+				default:
+					break;
+			}
 
 			return Ok(new { results = results.Count, vehicles = results });
 		}

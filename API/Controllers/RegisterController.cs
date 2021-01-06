@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using BusinessLayer;
 using Microsoft.AspNetCore.Authorization;
@@ -28,14 +29,20 @@ namespace API.Controllers {
 		}
 
 		private IActionResult RegisterUser(RegisterInfo register_info) {
+			try {
+				var _ = new MailAddress(register_info.Email);
+			} catch (FormatException) {
+				return BadRequest(new { message = "Neispravna e-mail adresa." });
+			}
+
 			if (UserBusiness.UserExists(register_info.Email))
-				return BadRequest(new { message = "Email already in use." });
+				return BadRequest(new { message = "Email je već registrovan." });
 
 			if (register_info.Password.Length < 8)
-				return BadRequest(new { message = "Password must be at least 8 characters long." });
+				return BadRequest(new { message = "Šifra mora biti 8 znaka ili više." });
 
 			if (register_info.Password != register_info.ConfirmPassword)
-				return BadRequest(new { message = "Passwords do not match." });
+				return BadRequest(new { message = "Šifre nisu iste." });
 
 			var hasher = new PasswordHasher<string>();
 
@@ -46,7 +53,7 @@ namespace API.Controllers {
 			};
 
 			if (UserBusiness.Insert(user))
-				return Ok(new { message = "Registration successful." });
+				return Ok(new { message = "Uspešna registracija." });
 
 			return BadRequest();
 		}

@@ -8,22 +8,20 @@
 	<button id="btn-logout" onclick="logout()">Odjavi se</button>
 </header>
 
-<div class="container">
+<main class="container">
 	<h1 class="moto-text">Pronađi <span>pravi auto</span> za tebe</h1>
 
 	<div id="vehicles" class="cards"></div>
 
 	<button page="/Browse">Prikaži vise</button>
-</div>
+</main>
 
 <script>
-	generate_links()
+	index_vehicles()
 
 	logged_in(() => {
 		$('#btn-login').style.display = 'none'
 		$('#btn-register').style.display = 'none'
 		$('#btn-logout').style.display = 'block'
 	})
-
-	index_vehicles()
 </script>

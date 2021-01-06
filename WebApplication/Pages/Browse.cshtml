@@ -2,50 +2,53 @@
 @model BrowseModel
 @{ Layout = "_LayoutEmpty"; ViewBag.Title = "Katalog"; ViewBag.Style = "/static/css/styleBrowse.css"; }
 
-<div class="main-container">
-	<div class="sidebar">
-		<div class="sidebar-logo">
-			<img src="/static/pics/logo.svg" alt="">
+<div class="wrapper flex">
+	<aside class="sidebar container">
+		<div class="sidebar-logo container">
+			<img id="logo" src="/static/pics/logo.svg" alt="Logo" onclick="location.href='/'"/>
 		</div>
 
-		<div class="sidebar-search-form">
-			<form id="filter-form" onsubmit="event.preventDefault()">
-				<input type="text" name="manufacturer" id="manufacturer" placeholder="Proizvođač">
-				<input type="text" name="model" id="model" placeholder="Model">
+		<form id="filter-form" class="container" onsubmit="event.preventDefault()">
+			<input type="text" name="manufacturer" id="manufacturer" placeholder="Proizvođač">
+			<input type="text" name="model" id="model" placeholder="Model">
 
-				<div class="flex">
-					<input type="text" name="price_start" id="price_start" placeholder="Cena od: ">
-					<input type="text" name="price_end" id="price_end" placeholder="Cena do: ">
-				</div>
+			<div class="flex">
+				<input type="number" onkeypress="return this.value.length<4" name="price_start" id="price_start" placeholder="Cena od: ">
+				<input type="number" onkeypress="return this.value.length<4" name="price_end" id="price_end" placeholder="Cena do: ">
+			</div>
 
-				<div class="flex">
-					<input type="text" name="year_start" id="year_start" placeholder="Godiste od: ">
-					<input type="text" name="year_end" id="year_end" placeholder="Godiste do: ">
-				</div>
+			<div class="flex">
+				<input type="number" onkeypress="return this.value.length<4" name="year_start" id="year_start" placeholder="Godiste od: ">
+				<input type="number" onkeypress="return this.value.length<4" name="year_end" id="year_end" placeholder="Godiste do: ">
+			</div>
 
-				<div class="btn-submit" onclick="refresh_vehicles()">Potvrdi</div>
-			</form>
+			<button class="btn-white" onclick="browse_vehicles()">Potvrdi</button>
+		</form>
+
+		<div class="sidebar-bottom container">
+			<button page="/Login">Prijavi se</button>
+			<button page="/Register">Registruj se</button>
 		</div>
+	</aside>
 
-		<div class="sidebar-bottom">
-			<p>Imaš nalog? </p>
-			<a asp-page="/Login">Prijavi se</a>
+	<main class="content container">
+		<div class="sort-bar flex">
+			<h2 id="results">Test</h2>
+			<select id="sort" onchange="browse_vehicles()">
+				<option value="price_desc">Cena opadajuća</option>
+				<option value="price_asc">Cena rastuća</option>
+				<option value="year_desc">Godina opadajuća</option>
+				<option value="year_asc">Godina rastuća</option>
+			</select>
 		</div>
-	</div>
-	<div class="content">
-		<div class="row">
-			<div></div>
-			<div id="vehicles" class="cards"></div>
-		</div>
-	</div>
+		<div id="vehicles" class="cards"></div>
+	</main>
 </div>
 
 <script>
-	generate_links()
+	browse_vehicles()
 
 	logged_in(() => {
 		$('.sidebar-bottom').style.display = 'none'
 	})
-
-	browse_vehicles()
 </script>
