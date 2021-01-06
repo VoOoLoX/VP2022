@@ -8,18 +8,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DesktopApplication.Pages;
 
-namespace DesktopApplication {
-	public partial class MainWindow : Window {
-		public MainWindow() {
+namespace DesktopApplication.Pages {
+	/// <summary>
+	/// Interaction logic for Starting.xaml
+	/// </summary>
+	public partial class Starting : Page {
+		public Starting() {
 			InitializeComponent();
-			DataContext = this;
-		}
-
-		private void OnLoad(object sender, RoutedEventArgs e) {
-			MainFrame.Navigate(new Starting());
 		}
 	}
 }
