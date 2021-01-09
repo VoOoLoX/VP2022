@@ -18,5 +18,6 @@ namespace Shared {
 		public int TypeID { get; set; }
 		public int FeaturesID { get; set; }
 		public int SecurityID { get; set; }
+		public int ImagesID { get; set; }
 	}
 }

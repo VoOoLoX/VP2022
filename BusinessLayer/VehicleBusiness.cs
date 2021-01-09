@@ -23,5 +23,7 @@ namespace BusinessLayer {
 		public static Feature GetFeature(Vehicle vehicle) => Repositories.Instance.FeatureRepository.GetAll().Find(feature => feature.ID == vehicle.FeaturesID);
 
 		public static Security GetSecurity(Vehicle vehicle) => Repositories.Instance.SecurityRepository.GetAll().Find(security => security.ID == vehicle.SecurityID);
+
+		public static Image GetImage(Vehicle vehicle) => Repositories.Instance.ImageRepository.GetAll().Find(image => image.ID == vehicle.ImagesID);
 	}
 }
