@@ -89,30 +89,29 @@ CREATE TABLE [Vehicles] (
 	TypeID int DEFAULT NULL,
 	FeaturesID int DEFAULT NULL,
 	SecurityID int DEFAULT NULL,
+	ImagesID int DEFAULT NULL, 
 	PRIMARY KEY (ID),
 	FOREIGN KEY (ManufacturerID) REFERENCES [Manufacturers] (ID),
 	FOREIGN KEY (ModelID) REFERENCES [VehicleModels] (ID),
 	FOREIGN KEY (TypeID) REFERENCES [VehicleTypes] (ID),
 	FOREIGN KEY (FeaturesID) REFERENCES Features (ID),
-	FOREIGN KEY (SecurityID) REFERENCES Security (ID)
+	FOREIGN KEY (SecurityID) REFERENCES Security (ID),
+	FOREIGN KEY (ImagesID) REFERENCES Images (ID)
+
 );
 
 CREATE TABLE [Images] (
 	ID int NOT NULL IDENTITY,
-	Blob varbinary(max),
-	VehicleID int DEFAULT NULL,
-	PRIMARY KEY (ID),
-	FOREIGN KEY (VehicleID) REFERENCES Vehicles (ID)
+	Link NVARCHAR(255),
+	PRIMARY KEY (ID)
 );
 
 CREATE TABLE [SoldVehicles] (
 	ID int NOT NULL IDENTITY,
 	Date date DEFAULT NULL,
 	VehicleID int DEFAULT NULL,
-	UserID int DEFAULT NULL,
 	OrderID int DEFAULT NULL,
 	PRIMARY KEY (ID),
 	FOREIGN KEY (VehicleID) REFERENCES [Vehicles] (ID),
-	FOREIGN KEY (UserID) REFERENCES [Users] (ID),
 	FOREIGN KEY (OrderID) REFERENCES [Orders] (ID)
 );
