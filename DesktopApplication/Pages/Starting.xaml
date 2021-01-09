@@ -3,13 +3,41 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DesktopApplication.Pages"
+      xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:controls="clr-namespace:DesktopApplication.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="980"
       Title="Starting">
 
 	<Grid>
-		<Rectangle HorizontalAlignment="Left" Height="100" Margin="404,285,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Fill="Red"/>
-
-	</Grid>
+	<Grid.RowDefinitions>
+		<RowDefinition Height="115"/>
+		<RowDefinition Height="*"/>
+		<RowDefinition Height="55"/>
+		<RowDefinition Height="*"/>
+	</Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="80 60 80 0">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
+                <Image Source="/Assets/Images/Evidencija.png" Height="44" Width="40"></Image>
+                <TextBox Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="#FF437F99" FontSize="33" BorderBrush="Transparent">Evidencija</TextBox>
+            </StackPanel>
+            <Rectangle Fill="#FF437F99" Width="1422" Height="4"></Rectangle>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <controls:InfoCard Text="Automobili na stanju" Value="17492" Grid.Column="0" Margin="85 35 20 130"/>
+            <controls:InfoCard Text="Prodati automobili" Value="192" Grid.Column="1" Margin="30 35 30 130"/>
+            <controls:InfoCard Text="Profit od prodaje" Value="192.000$" Grid.Column="2" Margin="20 35 85 130"/>
+        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="80 0 80 0">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
+                <Image Source="/Assets/Images/Statistika.png" Height="44" Width="40"></Image>
+                <TextBox Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="#FF437F99" FontSize="33" BorderBrush="Transparent">Statistika</TextBox>
+            </StackPanel>
+            <Rectangle Fill="#FF437F99" Width="1422" Height="4"></Rectangle>
+        </StackPanel>
+    </Grid>
 </Page>
