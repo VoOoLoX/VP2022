@@ -49,6 +49,19 @@ button:hover {
 	color: #1F3A46;
 }
 
+.btn-submit {
+	background-color: #ECECEC;
+	border: 1px solid #437F99;
+	color: #437F99;
+	width: 100%;
+}
+
+.btn-submit:hover {
+	background: #06BEB6;
+	color: white;
+	border: 1px solid #06BEB6;
+}
+
 .btn-white:hover {
 	background: #06BEB6;
 	color: white;
