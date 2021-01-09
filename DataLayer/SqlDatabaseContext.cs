@@ -45,7 +45,7 @@ namespace DataLayer {
 					var column_id = -1;
 					try {
 						column_id = command_result.GetOrdinal(prop.Name);
-					} catch (IndexOutOfRangeException e) {
+					} catch (IndexOutOfRangeException) {
 						throw new Exception($"Update database, column '{prop.Name}' is missing from the table '{table}'");
 					}
 					var is_null = command_result.IsDBNull(column_id);
