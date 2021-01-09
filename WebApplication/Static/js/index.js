@@ -90,7 +90,7 @@ const create_vehicle_card = (vehicle) => {
 	var card = get_nodes(`
 	<div class='card' onclick='open_vehicle(${vehicle.id})'>
 		<div class='image-box'>
-			<img src='https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg' alt=''/>
+			<img src='${vehicle.image}' alt=''/>
 		</div>
 		<div class='description-box'>
 			<h1>${vehicle.manufacturer} - ${vehicle.model}</h1>
@@ -161,10 +161,11 @@ const get_vehicle = async (id) => {
 
 			api_call_get(`Images/${vehicle.id}`, (img_res) => {
 				var result = img_res.body
-				result.data.forEach((img) => {
-					var img_element = get_nodes(`<img src="${img.link}">`)[0]
-					$('#vehicle-images').appendChild(img_element)
-				})
+				//result.images.forEach((img) => {
+				//	var img_element = get_nodes(`<img src="${img.link}">`)[0]
+				//	$('#vehicle-images').appendChild(img_element)
+				//})
+				$('#vehicle-images').appendChild(get_nodes(`<img src="${result.images[0].link}">`)[0])
 			})
 
 			$("#vehicle-cubic-capacity").innerText = `Zapremina motora: ${vehicle.cubicCapacity}`

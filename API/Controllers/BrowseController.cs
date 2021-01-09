@@ -44,6 +44,7 @@ namespace API.Controllers {
 			if (browse_info.PriceEnd > decimal.Zero)
 				vehicles = vehicles.Where(v => v.Price <= browse_info.PriceEnd).ToList();
 
+			
 			var results = vehicles.Select(v => new {
 				ID = v.ID,
 				Price = v.Price,
@@ -53,7 +54,8 @@ namespace API.Controllers {
 				Milage = v.Mileage,
 				CubicCapacity = v.CubicCapacity,
 				VehicleType = VehicleBusiness.GetVehicleType(v).Name,
-				Fuel = v.Fuel
+				Fuel = v.Fuel,
+				Image = ImagesController.GetImgurImages(v)?.data.FirstOrDefault().link ?? ""
 			}).ToList();
 
 			switch (browse_info.Sort.ToLower()) {
