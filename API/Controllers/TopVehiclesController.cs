@@ -33,7 +33,8 @@ namespace API.Controllers {
 				Milage = v.Mileage,
 				CubicCapacity = v.CubicCapacity,
 				VehicleType = VehicleBusiness.GetVehicleType(v).Name,
-				Fuel = v.Fuel
+				Fuel = v.Fuel,
+				Image = ImagesController.GetImgurImages(v)?.data.FirstOrDefault().link ?? ""
 			}).ToList();
 
 			return Ok(new { results = results.Count, vehicles = results });

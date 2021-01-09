@@ -24,6 +24,12 @@ const api_call = async (endpoint, method, data, callback) => {
 	}).then(r => r.json().then(data => ({ status: r.status, body: data }))).then(obj => callback(obj))
 }
 
+const api_call_get = async (endpoint, callback) => {
+	await fetch(`${api}/${endpoint}`, {
+		method: 'GET'
+	}).then(r => r.json().then(data => ({ status: r.status, body: data }))).then(obj => callback(obj))
+}
+
 const register = async () => {
 	var form_data = new FormData($('#register-form'))
 	var data = { email: form_data.get('email'), password: form_data.get('password'), confirmpassword: form_data.get('confirm_password') }
@@ -84,7 +90,7 @@ const create_vehicle_card = (vehicle) => {
 	var card = get_nodes(`
 	<div class='card' onclick='open_vehicle(${vehicle.id})'>
 		<div class='image-box'>
-			<img src='https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg' alt=''/>
+			<img src='${vehicle.image}' alt=''/>
 		</div>
 		<div class='description-box'>
 			<h1>${vehicle.manufacturer} - ${vehicle.model}</h1>
@@ -152,6 +158,15 @@ const get_vehicle = async (id) => {
 
 			$('#vehicle-name').innerText = `${vehicle.manufacturer} - ${vehicle.model}`
 			$('#vehicle-price').innerHTML = `${vehicle.price} &euro;`
+
+			api_call_get(`Images/${vehicle.id}`, (img_res) => {
+				var result = img_res.body
+				//result.images.forEach((img) => {
+				//	var img_element = get_nodes(`<img src="${img.link}">`)[0]
+				//	$('#vehicle-images').appendChild(img_element)
+				//})
+				$('#vehicle-images').appendChild(get_nodes(`<img src="${result.images[0].link}">`)[0])
+			})
 
 			$("#vehicle-cubic-capacity").innerText = `Zapremina motora: ${vehicle.cubicCapacity}`
 			$("#vehicle-horse-power").innerText = `Snaga motora: ${vehicle.horsePower}`
