@@ -2,70 +2,75 @@
 @model VehicleModel
 @{ Layout = "_LayoutEmpty"; ViewBag.Title = "Vehicle"; ViewBag.Style = "/static/css/styleVehicle.css"; }
 
+
 <div class="container">
     <div class="image-box">
         <div class="left-arrow">
-            <img src="assets/back.svg" alt="Prethodna">
+            <img src="/static/pics/back.svg" alt="Prethodna">
         </div>
         <div class="images">
             <img src="https://2020hondausa.com/wp-content/uploads/2019/01/2020-Honda-Civic-Hybrid-Exterior.png" alt="">
         </div>
         <div class="right-arrow">
-            <img src="assets/next.svg" alt="Sledeca">
+            <img src="/static/pics/next.svg" alt="Sledeca">
         </div>
     </div>
 
     <div class="info-container">
         <div class="info-container-up">
-            <h1>Toyota supra</h1>
-            <div class="price">11.000e</div>
+            <h1 id="vehicle-name">Toyota supra</h1>
+            <div id="vehicle-price" class="price">11.000e</div>
         </div>
 
         <div class="line"></div>
 
-        <div class="info-container-down">
-            <div class="box1">
-                <h3>Tehnički podaci:</h3>
+		<div class="info-container-down">
+			<div class="box1">
+				<h3>Tehnički podaci:</h3>
 
-                <p class="info-p">Zapremina motora:</p>
-                <p class="info-p">Snaga motora:</p>
-                <p class="info-p">Tip vozila: </p>
-                <p class="info-p">Gorivo: </p>
-                <p class="info-p">Kilometraza</p>
-            </div>
+				<p id="vehicle-cubic-capacity" class="info-p">Zapremina motora:</p>
+				<p id="vehicle-horse-power" class="info-p">Snaga motora:</p>
+				<p id="vehicle-type" class="info-p">Tip vozila: </p>
+				<p id="vehicle-fuel" class="info-p">Gorivo: </p>
+				<p id="vehicle-milage" class="info-p">Kilometraza</p>
+			</div>
 
-            <div class="box2">
-                <h3>Dodaci:</h3>
+			<div class="box2">
+				<h3>Dodaci:</h3>
 
-                <p class="info-p">Tempomat</p>
-                <p class="info-p">Parking senzor</p>
-                <p class="info-p">Elektricni prozori</p>
-                <p class="info-p">Siber</p>
-                <p class="info-p">Xenon farovi</p>
-                <p class="info-p">Multimedija</p>
-                <p class="info-p">Navigacija</p>
-                <p class="info-p">KLima</p>
-            </div>
+				<p id="vehicle-cruise-control" class="info-p">Tempomat</p>
+				<p id="vehicle-parking-sensors" class="info-p">Parking senzor</p>
+				<p id="vehicle-electric-windows" class="info-p">Elektricni prozori</p>
+				<p id="vehicle-sunroof" class="info-p">Siber</p>
+				<p id="vehicle-xenon-headlights" class="info-p">Xenon farovi</p>
+				<p id="vehicle-multimedia" class="info-p">Multimedija</p>
+				<p id="vehicle-navigation" class="info-p">Navigacija</p>
+				<p id="vehicle-air-conditioning" class="info-p">Klima</p>
+			</div>
 
-            <div class="box3">
-                <h3>Sigurnost: </h3>
+			<div class="box3">
+				<h3>Sigurnost: </h3>
 
-                <p class="info-p">Airbag</p>
-                <p class="info-p">ESP</p>
-                <p class="info-p">ASR</p>
-                <p class="info-p">Childlock</p>
-                <p class="info-p">Blokada motora</p>
-                <p class="info-p">Centralno zakljucavanje</p>
-            </div>
-        </div>
+				<p id="vehicle-airbag" class="info-p">Airbag</p>
+				<p id="vehicle-esp" class="info-p">ESP</p>
+				<p id="vehicle-asr" class="info-p">ASR</p>
+				<p id="vehicle-childlock" class="info-p">Childlock</p>
+				<p id="vehicle-immobiliser" class="info-p">Blokada motora</p>
+				<p id="vehicle-central-locking" class="info-p">Centralno zakljucavanje</p>
+			</div>
+		</div>
         <div class="description-box">
             <h3>Opis vozila: </h3>
 
-            <p class="info-p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim eaque qui obcaecati similique cum molestias veniam ullam dolores perspiciatis sit molestiae temporibus ratione provident numquam exercitationem dolor, voluptas, excepturi voluptatum.</p>
+            <p id="vehicle-description" class="info-p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim eaque qui obcaecati similique cum molestias veniam ullam dolores perspiciatis sit molestiae temporibus ratione provident numquam exercitationem dolor, voluptas, excepturi voluptatum.</p>
         </div>
 
         <div class="nav-back">
-            <img src="assets/undo.svg" alt="Nazad">
+            <img src="/static/pics/undo.svg" alt="Nazad" onclick="history.back()">
         </div>
     </div>
 </div>
+
+<script>
+    get_vehicle(@ViewContext.RouteData.Values["id"])
+</script>

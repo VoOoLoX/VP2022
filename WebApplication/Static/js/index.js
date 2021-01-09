@@ -141,6 +141,45 @@ const browse_vehicles = async () => {
 	})
 }
 
+const get_vehicle = async (id) => {
+	var data = {
+		id: id
+	}
+
+	await api_call('Vehicle', 'POST', data, (res) => {
+		if (res.status == 200) {
+			var vehicle = res.body.vehicle
+
+			$('#vehicle-name').innerText = `${vehicle.manufacturer} - ${vehicle.model}`
+			$('#vehicle-price').innerHTML = `${vehicle.price} &euro;`
+
+			$("#vehicle-cubic-capacity").innerText = `Zapremina motora: ${vehicle.cubicCapacity}`
+			$("#vehicle-horse-power").innerText = `Snaga motora: ${vehicle.horsePower}`
+			$("#vehicle-type").innerText = `Tip vozila: ${vehicle.vehicleType}`
+			$("#vehicle-fuel").innerText = `Gorivo: ${vehicle.fuel}`
+			$("#vehicle-milage").innerText = `Kilometraza: ${vehicle.milage}`
+
+			$('#vehicle-cruise-control').style.display = vehicle.features.cruiseControl ? 'block' : 'none'
+			$('#vehicle-parking-sensors').style.display = vehicle.features.parkingSensors ? 'block' : 'none'
+			$('#vehicle-electric-windows').style.display = vehicle.features.electricWindows ? 'block' : 'none'
+			$('#vehicle-sunroof').style.display = vehicle.features.sunroof ? 'block' : 'none'
+			$('#vehicle-xenon-headlights').style.display = vehicle.features.xenonHeadlights ? 'block' : 'none'
+			$('#vehicle-multimedia').style.display = vehicle.features.multimedia ? 'block' : 'none'
+			$('#vehicle-navigation').style.display = vehicle.features.navigation ? 'block' : 'none'
+			$('#vehicle-air-conditioning').style.display = vehicle.features.airConditioning ? 'block' : 'none'
+
+			$('#vehicle-airbag').style.display = vehicle.security.airbag ? 'block' : 'none'
+			$('#vehicle-esp').style.display = vehicle.security.esp ? 'block' : 'none'
+			$('#vehicle-asr').style.display = vehicle.security.asr ? 'block' : 'none'
+			$('#vehicle-childlock').style.display = vehicle.security.childlock ? 'block' : 'none'
+			$('#vehicle-immobiliser').style.display = vehicle.security.immobiliser ? 'block' : 'none'
+			$('#vehicle-central-locking').style.display = vehicle.security.centralLocking ? 'block' : 'none'
+
+			$('#vehicle-description').innerText = vehicle.description
+		}
+	})
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	_('[page]').forEach((button) => {
 		button.addEventListener('click', () => {
