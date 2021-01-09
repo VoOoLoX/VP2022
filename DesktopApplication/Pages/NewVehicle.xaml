@@ -3,22 +3,44 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DesktopApplication.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="NewVehicle">
-
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="115"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="1">
+      xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:Control="clr-namespace:DesktopApplication.Controls"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="NewVehicle" Height="698">
+    <ScrollViewer>
+        <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="80 20 80 0">
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
+                    <Image Source="/Assets/Images/UnosAutomobila.png" Height="44" Width="40"></Image>
+                    <TextBlock Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="#FF437F99" FontSize="33">Unos automobila</TextBlock>
+                </StackPanel>
+                <Rectangle Fill="#FF437F99" Width="1422" Height="4"></Rectangle>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Control:TextInput Label="Proizvođač:" Grid.Column="0" Margin="36,10,36,224" Width="190" Height="55"/>
+                    <Control:TextInput Label="Tip:" Grid.Column="0" Margin="36,65,35,169" Width="190" Height="55"/>
+                    <Control:TextInput Label="Boja:" Grid.Column="0" Margin="36,117,35,117" Width="190" Height="55"/>
+                    <Control:TextInput Label="Kilometraža:" Grid.Column="0" Margin="36,177,35,57" Width="190" Height="55"/>
+                    <Control:TextInput Label="Model:" Grid.Column="1" Margin="36,10,36,224" Width="190" Height="55"/>
+                    <Control:TextInput Label="Gorivo:" Grid.Column="1" Margin="36,65,36,169" Width="190" Height="55"/>
+                    <Control:TextInput Label="Godina proizvodnje:" Grid.Column="1" Margin="36,117,35,117" Width="190" Height="55"/>
+                    <Control:TextInput Label="Cena:" Grid.Column="1" Margin="36,177,35,57" Width="190" Height="55"/>
+                </Grid>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </Page>

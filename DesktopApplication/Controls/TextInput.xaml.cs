@@ -8,18 +8,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DesktopApplication.Pages;
 
-namespace DesktopApplication {
-	public partial class MainWindow : Window {
-		public MainWindow() {
+namespace DesktopApplication.Controls
+{
+	public partial class TextInput : UserControl
+	{
+		public TextInput()
+		{
 			InitializeComponent();
 			DataContext = this;
 		}
-
-		private void OnLoad(object sender, RoutedEventArgs e) {
-			MainFrame.Navigate(new Starting());
-		}
+		public string Label { get; set; }
+		public string Text { get; set; }
 	}
 }
