@@ -44,8 +44,8 @@
 			<controls:SidebarButton Grid.Row="1" Text="Početna" ImageSouce="/Assets/Images/Pocetna.png"/>
 			<controls:SidebarButton Grid.Row="2" Text="Vozila na stanju" ImageSouce="/Assets/Images/NaStanju.png"/>
 			<controls:SidebarButton Grid.Row="3" Text="Unos vozila" ImageSouce="/Assets/Images/UnosAutomobila.png"/>
-			<controls:SidebarButton Grid.Row="4" Text="Prodata vozila" ImageSouce="/Assets/Images/ProdatiAutomobili.png"/>
-		</Grid>
+            <controls:SidebarButton Grid.Row="4" Text="Prodata vozila" ImageSouce="/Assets/Images/ProdatiAutomobili.png"/>
+        </Grid>
 		<Frame x:Name="MainFrame" Grid.Column="1" Style="{StaticResource frame}"></Frame>
 	</Grid>
 </Window>
