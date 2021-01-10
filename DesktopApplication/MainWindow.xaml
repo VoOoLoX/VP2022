@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApplication" xmlns:controls="clr-namespace:DesktopApplication.Controls"
 		mc:Ignorable="d"
-        Title="Admin panel" Height="720" Width="1280" Loaded="OnLoad">
+        Title="Admin panel" Height="720" Width="1280" Loaded="OnLoad" WindowStartupLocation="CenterScreen" MinWidth="1280" MinHeight="720">
 	<Window.Resources>
 		<Style x:Key="siderbar" TargetType="Grid">
 			<Setter Property="Background">

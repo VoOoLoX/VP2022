@@ -21,6 +21,9 @@ namespace DesktopApplication.Controls
 			DataContext = this;
 		}
 		public string Value { get; set; }
-		public string Text { get; set; }
+		public string Label { get; set; }
+		public Brush BackgroundColor { get; set; } = Brushes.White;
+		public Brush ValueColor { get; set; } = new SolidColorBrush(Color.FromRgb(6, 190, 182));
+		public Brush LabelColor { get; set; } = Brushes.Black;
 	}
 }

@@ -7,37 +7,36 @@
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="980"
       Title="Starting">
-
-	<Grid>
-	<Grid.RowDefinitions>
-		<RowDefinition Height="115"/>
-		<RowDefinition Height="*"/>
-		<RowDefinition Height="55"/>
-		<RowDefinition Height="*"/>
-	</Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="80 60 80 0">
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
-                <Image Source="/Assets/Images/Evidencija.png" Height="44" Width="40"></Image>
-                <TextBlock Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="#FF437F99" FontSize="33">Evidencija</TextBlock>
+	<Grid Margin="80 50 80 0">
+	    <Grid.RowDefinitions>
+		    <RowDefinition Height="60"/>
+		    <RowDefinition Height="*"/>
+		    <RowDefinition Height="60"/>
+		    <RowDefinition Height="*"/>
+	    </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+                <Image Source="/Assets/Images/Evidencija.png" Height="32" Width="32"></Image>
+				<TextBlock Foreground="#437F99" FontSize="24" Margin="10 0 0 0">Evidencija</TextBlock>
             </StackPanel>
-            <Rectangle Fill="#FF437F99" Width="1422" Height="4"></Rectangle>
+            <Rectangle Fill="#437F99" Height="3"></Rectangle>
         </StackPanel>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <controls:InfoCard Text="Automobili na stanju" Value="17492" Grid.Column="0" Margin="85 35 20 130"/>
-            <controls:InfoCard Text="Prodati automobili" Value="192" Grid.Column="1" Margin="30 35 30 130"/>
-            <controls:InfoCard Text="Profit od prodaje" Value="192.000$" Grid.Column="2" Margin="20 35 85 130"/>
+            <controls:InfoCard Label="Automobili na stanju" Value="17492" Grid.Column="0" Margin="10 0 10 0"/>
+            <controls:InfoCard Label="Prodati automobili" Value="192" Grid.Column="1" Margin="10 0 10 0"/>
+			<controls:InfoCard Label="Profit od prodaje" Value="192.000$" Grid.Column="2" Margin="10 0 10 0" BackgroundColor="#437F99" ValueColor="White" LabelColor="White"/>
         </Grid>
-        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="80 0 80 0">
-            <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
-                <Image Source="/Assets/Images/Statistika.png" Height="44" Width="40"></Image>
-                <TextBlock Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="#FF437F99" FontSize="33">Statistika</TextBlock>
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+                <Image Source="/Assets/Images/Statistika.png" Height="32" Width="32"></Image>
+				<TextBlock Foreground="#437F99" FontSize="24" Margin="10 0 0 0">Statistika</TextBlock>
             </StackPanel>
-            <Rectangle Fill="#FF437F99" Width="1422" Height="4"></Rectangle>
+            <Rectangle Fill="#437F99" Height="3"></Rectangle>
         </StackPanel>
     </Grid>
 </Page>
