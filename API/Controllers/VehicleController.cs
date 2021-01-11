@@ -50,8 +50,9 @@ namespace API.Controllers {
 					Sunroof = feature.Sunroof,
 					XenonHeadlights = feature.XenonHeadlights,
 					Multimedia = feature.Multimedia,
-					Navigation = feature.Navigation,
-					AirConditioning = feature.AirConditioning
+					PowerSteering = feature.PowerAssistedSteering,
+					AirConditioning = feature.AirConditioning,
+					Navigation = feature.Navigation
 				},
 				Security = new {
 					Airbag = security.Airbag,

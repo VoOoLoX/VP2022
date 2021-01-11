@@ -3,10 +3,10 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:controls="clr-namespace:DesktopApplication.Controls"
+      xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:Control="clr-namespace:DesktopApplication.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="980"
-      Title="Starting">
+      Title="Starting" Loaded="OnLoad" Unloaded="OnUnload">
 	<Grid Margin="80 50 80 0">
 	    <Grid.RowDefinitions>
 		    <RowDefinition Height="60"/>
@@ -27,9 +27,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <controls:InfoCard Label="Automobili na stanju" Value="17492" Grid.Column="0" Margin="10 0 10 0"/>
-            <controls:InfoCard Label="Prodati automobili" Value="192" Grid.Column="1" Margin="10 0 10 0"/>
-			<controls:InfoCard Label="Profit od prodaje" Value="192.000$" Grid.Column="2" Margin="10 0 10 0" BackgroundColor="#437F99" ValueColor="White" LabelColor="White"/>
+			<Control:InfoCard x:Name="VehicleCount" Label="Vozila na stanju" Value="" Grid.Column="0" Margin="10 0 10 0"/>
+            <Control:InfoCard x:Name="SoldVehicleCount" Label="Prodata vozila" Value="" Grid.Column="1" Margin="10 0 10 0"/>
+			<Control:InfoCard x:Name="Profit" Label="Profit od prodaje" Value="" Grid.Column="2" Margin="10 0 10 0" BackgroundColor="#437F99" ValueColor="White" LabelColor="White"/>
         </Grid>
         <StackPanel Grid.Row="2" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Margin="0 0 0 5">

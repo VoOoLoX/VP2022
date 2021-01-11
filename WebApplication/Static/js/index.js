@@ -161,11 +161,11 @@ const get_vehicle = async (id) => {
 
 			api_call_get(`Images/${vehicle.id}`, (img_res) => {
 				var result = img_res.body
-				//result.images.forEach((img) => {
-				//	var img_element = get_nodes(`<img src="${img.link}">`)[0]
-				//	$('#vehicle-images').appendChild(img_element)
-				//})
-				$('#vehicle-images').appendChild(get_nodes(`<img src="${result.images[0].link}">`)[0])
+				result.images.forEach((img) => {
+					var img_element = get_nodes(`<img src="${img.link}">`)[0]
+					$('#vehicle-images').appendChild(img_element)
+				})
+				carousel()
 			})
 
 			$("#vehicle-cubic-capacity").innerText = `Zapremina motora: ${vehicle.cubicCapacity}`
@@ -180,6 +180,7 @@ const get_vehicle = async (id) => {
 			$('#vehicle-sunroof').style.display = vehicle.features.sunroof ? 'block' : 'none'
 			$('#vehicle-xenon-headlights').style.display = vehicle.features.xenonHeadlights ? 'block' : 'none'
 			$('#vehicle-multimedia').style.display = vehicle.features.multimedia ? 'block' : 'none'
+			$('#vehicle-power-steering').style.display = vehicle.features.powerSteering ? 'block' : 'none'
 			$('#vehicle-navigation').style.display = vehicle.features.navigation ? 'block' : 'none'
 			$('#vehicle-air-conditioning').style.display = vehicle.features.airConditioning ? 'block' : 'none'
 

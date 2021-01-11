@@ -11,32 +11,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DesktopApplication.Controls
-{
-	public partial class TextInput : UserControl
-	{
-		public TextInput()
-		{
+namespace DesktopApplication.Controls {
+	public partial class Button : UserControl {
+		public Button() {
 			InitializeComponent();
 			DataContext = this;
-		}
-
-		public static readonly DependencyProperty LabelProperty = DependencyProperty.Register(
-			"Label",
-			typeof(string),
-			typeof(TextInput),
-			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
-		);
-
-		public string Label {
-			get { return (string)GetValue(LabelProperty); }
-			set { SetValue(LabelProperty, value); }
 		}
 
 		public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
 			"Text",
 			typeof(string),
-			typeof(TextInput),
+			typeof(Button),
 			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
 		);
 

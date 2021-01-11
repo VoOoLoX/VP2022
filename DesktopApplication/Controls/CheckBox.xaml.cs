@@ -11,12 +11,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DesktopApplication.Controls
-{
-	public partial class TextInput : UserControl
-	{
-		public TextInput()
-		{
+namespace DesktopApplication.Controls {
+	public partial class CheckBox : UserControl {
+		public CheckBox() {
 			InitializeComponent();
 			DataContext = this;
 		}
@@ -24,7 +21,7 @@ namespace DesktopApplication.Controls
 		public static readonly DependencyProperty LabelProperty = DependencyProperty.Register(
 			"Label",
 			typeof(string),
-			typeof(TextInput),
+			typeof(CheckBox),
 			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
 		);
 
@@ -33,16 +30,16 @@ namespace DesktopApplication.Controls
 			set { SetValue(LabelProperty, value); }
 		}
 
-		public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-			"Text",
-			typeof(string),
-			typeof(TextInput),
-			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+		public static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register(
+			"IsChecked",
+			typeof(bool),
+			typeof(CheckBox),
+			new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
 		);
 
-		public string Text {
-			get { return (string)GetValue(TextProperty); }
-			set { SetValue(TextProperty, value); }
+		public bool IsChecked {
+			get { return (bool)GetValue(IsCheckedProperty); }
+			set { SetValue(IsCheckedProperty, value); }
 		}
 	}
 }

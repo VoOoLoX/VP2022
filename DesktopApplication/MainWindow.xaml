@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DesktopApplication" xmlns:controls="clr-namespace:DesktopApplication.Controls"
+        xmlns:local="clr-namespace:DesktopApplication" xmlns:Control="clr-namespace:DesktopApplication.Controls"
 		mc:Ignorable="d"
-        Title="Admin panel" Height="720" Width="1280" Loaded="OnLoad" WindowStartupLocation="CenterScreen" MinWidth="1280" MinHeight="720">
+        Title="Admin panel" Height="720" Width="1280" Loaded="OnLoad" WindowStartupLocation="CenterScreen" MinWidth="1280" MinHeight="720" Icon="/Assets/Images/Logo.png">
 	<Window.Resources>
 		<Style x:Key="siderbar" TargetType="Grid">
 			<Setter Property="Background">
@@ -41,11 +41,13 @@
 				<RowDefinition Height="45"/>
 			</Grid.RowDefinitions>
 			<Image Grid.Row="0" Width="200" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Assets/Images/Logo.png"/>
-			<controls:SidebarButton Grid.Row="1" Text="Početna" ImageSouce="/Assets/Images/Pocetna.png"/>
-			<controls:SidebarButton Grid.Row="2" Text="Vozila na stanju" ImageSouce="/Assets/Images/NaStanju.png"/>
-			<controls:SidebarButton Grid.Row="3" Text="Unos vozila" ImageSouce="/Assets/Images/UnosAutomobila.png"/>
-            <controls:SidebarButton Grid.Row="4" Text="Prodata vozila" ImageSouce="/Assets/Images/ProdatiAutomobili.png"/>
+			<Control:SidebarButton x:Name="ButtonStarting" Grid.Row="1" Text="Početna" ImageSouce="/Assets/Images/Pocetna.png" MouseLeftButtonUp="OnClickStarting"/>
+			<Control:SidebarButton x:Name="ButtonInventory" Grid.Row="2" Text="Vozila na stanju" ImageSouce="/Assets/Images/NaStanju.png"/>
+			<Control:SidebarButton x:Name="ButtonNewVehicle" Grid.Row="3" Text="Unos vozila" ImageSouce="/Assets/Images/UnosAutomobila.png" MouseLeftButtonUp="OnClickNewVehicle"/>
+            <Control:SidebarButton x:Name="ButtonSoldVehicles" Grid.Row="4" Text="Prodata vozila" ImageSouce="/Assets/Images/ProdatiAutomobili.png"/>
         </Grid>
-		<Frame x:Name="MainFrame" Grid.Column="1" Style="{StaticResource frame}"></Frame>
+		<ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+			<Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Style="{StaticResource frame}"></Frame>
+		</ScrollViewer>
 	</Grid>
 </Window>

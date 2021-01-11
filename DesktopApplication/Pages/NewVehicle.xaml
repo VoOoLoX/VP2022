@@ -5,44 +5,88 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:Control="clr-namespace:DesktopApplication.Controls"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="NewVehicle" Height="698">
-    <ScrollViewer>
-        <Grid>
+      Title="NewVehicle" Height="1200">
+    <Grid Margin="80 50 80 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+		<StackPanel Grid.Row="0" Orientation="Vertical">
+			<StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+				<Image Source="/Assets/Images/UnosAutomobila.png" Height="32" Width="32"></Image>
+				<TextBlock Foreground="#437F99" FontSize="24" Margin="10 0 0 0">Novo vozilo</TextBlock>
+			</StackPanel>
+			<Rectangle Fill="#437F99" Height="3"></Rectangle>
+		</StackPanel>
+		
+		<Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="80 20 80 0">
-                <StackPanel Orientation="Horizontal" Margin="0 0 0 4">
-                    <Image Source="/Assets/Images/UnosAutomobila.png" Height="44" Width="40"></Image>
-                    <TextBlock Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Foreground="#FF437F99" FontSize="33">Unos automobila</TextBlock>
-                </StackPanel>
-                <Rectangle Fill="#FF437F99" Width="1422" Height="4"></Rectangle>
-            </StackPanel>
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Control:TextInput Label="Proizvođač:" Grid.Column="0" Margin="36,10,36,224" Width="190" Height="55"/>
-                    <Control:TextInput Label="Tip:" Grid.Column="0" Margin="36,65,35,169" Width="190" Height="55"/>
-                    <Control:TextInput Label="Boja:" Grid.Column="0" Margin="36,117,35,117" Width="190" Height="55"/>
-                    <Control:TextInput Label="Kilometraža:" Grid.Column="0" Margin="36,177,35,57" Width="190" Height="55"/>
-                    <Control:TextInput Label="Model:" Grid.Column="1" Margin="36,10,36,224" Width="190" Height="55"/>
-                    <Control:TextInput Label="Gorivo:" Grid.Column="1" Margin="36,65,36,169" Width="190" Height="55"/>
-                    <Control:TextInput Label="Godina proizvodnje:" Grid.Column="1" Margin="36,117,35,117" Width="190" Height="55"/>
-                    <Control:TextInput Label="Cena:" Grid.Column="1" Margin="36,177,35,57" Width="190" Height="55"/>
-                    <Control:InfoCard Grid.ColumnSpan="2" Margin="36,304,166,-159" Width="320" Height="150"/>
-                    <Control:BtnUnos Width="350" Height="400"></Control:BtnUnos>
-                </Grid>
+			
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0" Orientation="Vertical">
+					<Control:TextInput Label="Proizvođač:" Width="300" Margin="5"/>
+					<Control:TextInput Label="Model:" Width="300" Margin="5"/>
+					<Control:TextInput Label="Tip:" Width="300" Margin="5"/>
+					<Control:TextInput Label="Gorivo:" Width="300" Margin="5"/>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Orientation="Vertical">
+					<Control:TextInput Label="Godina proizvodnje:" Width="300" Margin="5"/>
+					<Control:TextInput Label="Boja:" Width="300" Margin="5"/>
+					<Control:TextInput Label="Kilometraža:" Width="300" Margin="5"/>
+                    <Control:TextInput Label="Cena:" Width="300" Margin="5"/>
+				</StackPanel>
             </Grid>
-        </Grid>
-    </ScrollViewer>
+
+			<Grid Grid.Row="1">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top">
+					<TextBlock Text="Dodaci:" TextAlignment="Center" Padding="10" Foreground="#437F99" FontSize="16" FontFamily="{StaticResource Comfortaa}" />
+					<Control:CheckBox Label="Tempomat" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Parking senzor" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Elektricni prozori" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Siber" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Xenon farovi" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Multimedija" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Servo volan" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Klima" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Navigacija" Width="250" Padding="5"/>
+				</StackPanel>
+				<StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Top">
+					<TextBlock Text="Bezbednosti:" TextAlignment="Center" Padding="10" Foreground="#437F99" FontSize="16" FontFamily="{StaticResource Comfortaa}"/>
+					<Control:CheckBox Label="Airbag" Width="250" Padding="5"/>
+					<Control:CheckBox Label="ESP" Width="250" Padding="5"/>
+					<Control:CheckBox Label="ASR" Width="250" Padding="5"/>
+					<Control:CheckBox Label="ABS" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Childlock" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Blokada motora" Width="250" Padding="5"/>
+					<Control:CheckBox Label="Centralno zakljucavanje" Width="250" Padding="5"/>
+				</StackPanel>
+			</Grid>
+
+			<Grid Grid.Row="2">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<StackPanel Grid.Column="0" Orientation="Vertical">
+					<Control:TextInputMultiline Label="Opis:" Width="500" Height="250"/>
+				</StackPanel>
+			</Grid>
+		</Grid>
+		
+		<StackPanel Grid.Row="2">
+			<Control:Button Width="150" Height="50" Text="Dodaj"></Control:Button>
+		</StackPanel>
+     </Grid>
 </Page>

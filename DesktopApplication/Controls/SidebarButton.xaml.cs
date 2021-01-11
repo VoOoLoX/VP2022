@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,7 +18,29 @@ namespace DesktopApplication.Controls {
 			InitializeComponent();
 			DataContext = this;
 		}
-		public string ImageSouce { get; set; }
-		public string Text { get; set; }
+
+		public static readonly DependencyProperty ImageSouceProperty = DependencyProperty.Register(
+			"ImageSouce",
+			typeof(string),
+			typeof(SidebarButton),
+			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+		);
+
+		public string ImageSouce {
+			get { return (string)GetValue(ImageSouceProperty); }
+			set { SetValue(ImageSouceProperty, value); }
+		}
+
+		public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+			"Text",
+			typeof(string),
+			typeof(SidebarButton),
+			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+		);
+
+		public string Text {
+			get { return (string)GetValue(TextProperty); }
+			set { SetValue(TextProperty, value); }
+		}
 	}
 }

@@ -20,8 +20,31 @@ namespace DesktopApplication.Controls
 			InitializeComponent();
 			DataContext = this;
 		}
-		public string Value { get; set; }
-		public string Label { get; set; }
+
+		public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
+			"Value",
+			typeof(string),
+			typeof(InfoCard),
+			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+		);
+
+		public string Value {
+			get { return (string)GetValue(ValueProperty); }
+			set { SetValue(ValueProperty, value); }
+		}
+
+		public static readonly DependencyProperty LabelProperty = DependencyProperty.Register(
+			"Label",
+			typeof(string),
+			typeof(InfoCard),
+			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+		);
+
+		public string Label {
+			get { return (string)GetValue(LabelProperty); }
+			set { SetValue(LabelProperty, value); }
+		}
+
 		public Brush BackgroundColor { get; set; } = Brushes.White;
 		public Brush ValueColor { get; set; } = new SolidColorBrush(Color.FromRgb(6, 190, 182));
 		public Brush LabelColor { get; set; } = Brushes.Black;

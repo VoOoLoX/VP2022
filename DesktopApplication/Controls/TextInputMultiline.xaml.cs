@@ -13,18 +13,17 @@ using System.Windows.Shapes;
 
 namespace DesktopApplication.Controls
 {
-	public partial class TextInput : UserControl
+	public partial class TextInputMultiline : UserControl
 	{
-		public TextInput()
+		public TextInputMultiline()
 		{
 			InitializeComponent();
 			DataContext = this;
 		}
-
 		public static readonly DependencyProperty LabelProperty = DependencyProperty.Register(
 			"Label",
 			typeof(string),
-			typeof(TextInput),
+			typeof(TextInputMultiline),
 			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
 		);
 
@@ -36,7 +35,7 @@ namespace DesktopApplication.Controls
 		public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
 			"Text",
 			typeof(string),
-			typeof(TextInput),
+			typeof(TextInputMultiline),
 			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
 		);
 
