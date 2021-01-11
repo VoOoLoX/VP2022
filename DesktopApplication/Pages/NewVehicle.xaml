@@ -33,16 +33,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0" Orientation="Vertical">
-					<Control:TextInput Label="Proizvođač:" Width="300" Margin="5"/>
-					<Control:TextInput Label="Model:" Width="300" Margin="5"/>
-					<Control:TextInput Label="Tip:" Width="300" Margin="5"/>
-					<Control:TextInput Label="Gorivo:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleManufacturer" Label="Proizvođač:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleModel" Label="Model:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleType" Label="Tip:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VEhicleFuel" Label="Gorivo:" Width="300" Margin="5"/>
 				</StackPanel>
 				<StackPanel Grid.Column="1" Orientation="Vertical">
-					<Control:TextInput Label="Godina proizvodnje:" Width="300" Margin="5"/>
-					<Control:TextInput Label="Boja:" Width="300" Margin="5"/>
-					<Control:TextInput Label="Kilometraža:" Width="300" Margin="5"/>
-                    <Control:TextInput Label="Cena:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleYear" Label="Godina proizvodnje:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleColor" Label="Boja:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleMilage" Label="Kilometraža:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehiclePrice" Label="Cena:" Width="300" Margin="5"/>
 				</StackPanel>
             </Grid>
 
@@ -53,25 +53,25 @@
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top">
 					<TextBlock Text="Dodaci:" TextAlignment="Center" Padding="10" Foreground="#437F99" FontSize="16" FontFamily="{StaticResource Comfortaa}" />
-					<Control:CheckBox Label="Tempomat" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Parking senzor" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Elektricni prozori" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Siber" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Xenon farovi" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Multimedija" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Servo volan" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Klima" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Navigacija" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleCruiseControl" Label="Tempomat" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleSensor" Label="Parking senzor" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleElectricWindows" Label="Elektricni prozori" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleSunroof" Label="Siber" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleXenonHeadlights" Label="Xenon farovi" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleMultimedia" Label="Multimedija" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehiclePowerSteering" Label="Servo volan" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleAConditioning" Label="Klima" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleNavigation" Label="Navigacija" Width="250" Padding="5"/>
 				</StackPanel>
 				<StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Top">
 					<TextBlock Text="Bezbednosti:" TextAlignment="Center" Padding="10" Foreground="#437F99" FontSize="16" FontFamily="{StaticResource Comfortaa}"/>
-					<Control:CheckBox Label="Airbag" Width="250" Padding="5"/>
-					<Control:CheckBox Label="ESP" Width="250" Padding="5"/>
-					<Control:CheckBox Label="ASR" Width="250" Padding="5"/>
-					<Control:CheckBox Label="ABS" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Childlock" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Blokada motora" Width="250" Padding="5"/>
-					<Control:CheckBox Label="Centralno zakljucavanje" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleAirbag" Label="Airbag" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleESP" Label="ESP" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleASR" Label="ASR" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleABS" Label="ABS" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleChildlock" Label="Childlock" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleImmobiliser" Label="Blokada motora" Width="250" Padding="5"/>
+                    <Control:CheckBox x:Name="VehicleCentrallocking" Label="Centralno zakljucavanje" Width="250" Padding="5"/>
 				</StackPanel>
 			</Grid>
 
