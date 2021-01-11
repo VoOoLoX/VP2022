@@ -7,25 +7,25 @@
 
     <div class="wrap-box">
         <div class="order-left">
-            <form>
+            <form id="order-form">
                 <div class="wrapp">
                     <div class="wrap">
                         <label>Ime:</label>
-                        <input type="text">
+                        <input class="order-inputs" type="text">
                     </div>
                     <div class="wrap">
                         <label>Prezime:</label>
-                        <input type="text">
+                        <input class="order-inputs" type="text">
                     </div>
                 </div>
                 <label>Država:</label>
-                <input type="text">
+                <input class="order-inputs" type="text">
                 <label>Grad:</label>
-                <input type="text">
+                <input class="order-inputs" type="text">
                 <label>Ulica:</label>
-                <input type="text">
+                <input class="order-inputs" type="text">
                 <label>Poštanski broj:</label>
-                <input type="text">
+                <input class="order-inputs" type="text">
             </form>
         </div>
         <div class="order-right">
@@ -48,7 +48,7 @@
     </div>
 
     <div class="order-footer">
-        <div class="btn-cancel">Otkaži</div>
+        <div class="btn-cancel" onclick="history.back()">Otkaži</div>
         <div class="btn-submit">Potvrdi</div>
     </div>
 </div>

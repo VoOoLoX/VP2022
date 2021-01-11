@@ -20,9 +20,9 @@
     flex-direction: column;
 }
 
-    .wrap:nth-child(2) {
-        margin-left: 5px;
-    }
+.wrap:nth-child(2) {
+    margin-left: 5px;
+}
 
 form {
     display: flex;
@@ -88,9 +88,9 @@ input:focus {
     outline: none;
 }
 
-input[type="text"] {
+.order-inputs {
     background: transparent;
-    color: rgb(43, 43, 43);
+    color: #2B2B2B;
     border: 1.7px solid #437F99;
     padding: 12px 12px;
     border-radius: 30px;
@@ -101,11 +101,12 @@ input[type="text"] {
     width: 100%;
 }
 
-input[type="text"]:focus {
+.order-inputs:focus {
+    color: #2B2B2B;
     border: 1.7px solid #06BEB6;
 }
 
-input[type="text"]:hover {
+.order-inputs:hover {
     border: 1.7px solid #06BEB6;
 }
 
