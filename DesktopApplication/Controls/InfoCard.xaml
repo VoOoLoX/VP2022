@@ -5,22 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DesktopApplication.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="260">
+             d:DesignHeight="100" d:DesignWidth="250" MaxHeight="100">
     <UserControl.Resources>
-        <Style x:Key="info_card_text" TargetType="TextBlock">
+		<Style x:Key="info_card_text" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#06BEB6"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="48"/>
+			<Setter Property="FontFamily" Value="{StaticResource Comfortaa}"/>
+            <Setter Property="FontSize" Value="40"/>
         </Style>
-        <Style x:Key="info_card_subtext" TargetType="TextBlock">
+		<Style x:Key="info_card_label" TargetType="Label">
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
     </UserControl.Resources>
-    <Border CornerRadius="20,20,20,20" BorderBrush="White" Background="White">
+    <Border CornerRadius="20" BorderBrush="White" Background="{Binding BackgroundColor}" Padding="0 10 0 10">
         <StackPanel>
-            <TextBlock Style="{StaticResource info_card_text}" Text="{Binding Value}"></TextBlock>
-            <TextBlock Style="{StaticResource info_card_subtext}" Text="{Binding Text}"></TextBlock>
+			<TextBlock Style="{StaticResource info_card_text}" Text="{Binding Value}" Foreground="{Binding ValueColor}"></TextBlock>
+			<Label Style="{StaticResource info_card_label}" Content="{Binding Label}" Foreground="{Binding LabelColor}"></Label>
         </StackPanel>
+		<Border.Effect>
+			<DropShadowEffect Opacity="0.5" Direction="270"/>
+		</Border.Effect>
     </Border>
 </UserControl>

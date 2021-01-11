@@ -39,6 +39,8 @@
                     <Control:TextInput Label="Gorivo:" Grid.Column="1" Margin="36,65,36,169" Width="190" Height="55"/>
                     <Control:TextInput Label="Godina proizvodnje:" Grid.Column="1" Margin="36,117,35,117" Width="190" Height="55"/>
                     <Control:TextInput Label="Cena:" Grid.Column="1" Margin="36,177,35,57" Width="190" Height="55"/>
+                    <Control:InfoCard Grid.ColumnSpan="2" Margin="36,304,166,-159" Width="320" Height="150"/>
+                    <Control:BtnUnos Width="350" Height="400"></Control:BtnUnos>
                 </Grid>
             </Grid>
         </Grid>

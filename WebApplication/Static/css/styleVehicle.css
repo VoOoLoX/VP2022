@@ -1,5 +1,4 @@
 ﻿body {
-    background: #EDEDED;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -9,13 +8,12 @@
 
 .container {
     background: white;
-    max-width: 1200px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25), 0 -4px 4px 0 rgba(0,0,0,0.25);
     border-radius: 20px;
     padding: 20px;
-    margin: 20px;
+    margin: 20px 0;
 }
 
 .nav-back {
@@ -36,6 +34,20 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.left-arrow, .right-arrow {
+    height: 100%;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
 }
 
 .left-arrow img, .right-arrow img {
@@ -44,17 +56,21 @@
 }
 
 .image-box {
+    display: flex;
     flex: 1;
+    width: 100%;
+    position: relative;
 }
 
-.image-box {
-    display: flex;
+.images {
     width: 100%;
+    height: inherit;
 }
 
 .images img {
-    width: 100%;
-    height: 100%;
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
 }
 
 .info-container {
@@ -65,7 +81,7 @@
     display: flex;
     justify-content: space-between;
     font-family: 'Comfortaa', cursive;
-    padding: 15px;
+    padding: 15px 0;
 }
 
 .line {
@@ -78,7 +94,7 @@
     color: white;
     background-color: #A0BF48;
     border-radius: 20px;
-    width: 116px;
+    width: 120px;
     text-align: center;
     font-family: 'Comfortaa', cursive;
     padding: 5px 0;
@@ -93,7 +109,7 @@
     justify-content: space-evenly;
 }
 
-.box1, .box2, .box3, .description-box {
+.box, .description-box {
     padding: 15px;
 }
 
@@ -108,4 +124,10 @@
     padding-bottom: 5px;
     color: rgb(61, 61, 61);
     font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+    .box {
+        font-size: 0.8em;
+    }
 }

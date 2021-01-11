@@ -96,4 +96,7 @@
 	.cards {
 		grid-template-columns: 1fr;
 	}
+	.sort-bar {
+		padding: 2em 0.5em;
+	}
 }

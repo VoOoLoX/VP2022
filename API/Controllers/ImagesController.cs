@@ -61,7 +61,7 @@ namespace API.Controllers {
 			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Client-ID", Constants.ImgurClientID);
 
 			var response = client.GetAsync(new Uri(Constants.ImgurAPIAlbumImages(images.Link))).Result;
-
+			
 			if (response.StatusCode != HttpStatusCode.OK)
 				return NotFound();
 
