@@ -166,6 +166,8 @@ const get_vehicle = async (id) => {
 				//	$('#vehicle-images').appendChild(img_element)
 				//})
 				$('#vehicle-images').appendChild(get_nodes(`<img src="${result.images[0].link}">`)[0])
+
+
 			})
 
 			$("#vehicle-cubic-capacity").innerText = `Zapremina motora: ${vehicle.cubicCapacity}`
