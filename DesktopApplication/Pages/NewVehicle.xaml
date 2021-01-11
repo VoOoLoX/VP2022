@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:Control="clr-namespace:DesktopApplication.Controls"
       mc:Ignorable="d" d:DesignWidth="800"
-      Title="NewVehicle" Height="1200">
+      Title="NewVehicle" Height="1300">
     <Grid Margin="80 50 80 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -36,14 +36,16 @@
                     <Control:TextInput x:Name="VehicleManufacturer" Label="Proizvođač:" Width="300" Margin="5"/>
                     <Control:TextInput x:Name="VehicleModel" Label="Model:" Width="300" Margin="5"/>
                     <Control:TextInput x:Name="VehicleType" Label="Tip:" Width="300" Margin="5"/>
-                    <Control:TextInput x:Name="VEhicleFuel" Label="Gorivo:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleFuel" Label="Gorivo:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleHorsePower" Label="Snaga Motora:" Width="300" Margin="5"/>
 				</StackPanel>
 				<StackPanel Grid.Column="1" Orientation="Vertical">
                     <Control:TextInput x:Name="VehicleYear" Label="Godina proizvodnje:" Width="300" Margin="5"/>
                     <Control:TextInput x:Name="VehicleColor" Label="Boja:" Width="300" Margin="5"/>
                     <Control:TextInput x:Name="VehicleMilage" Label="Kilometraža:" Width="300" Margin="5"/>
                     <Control:TextInput x:Name="VehiclePrice" Label="Cena:" Width="300" Margin="5"/>
-				</StackPanel>
+                    <Control:TextInput x:Name="VehicleCubicCapacity" Label="Kubikaža:" Width="300" Margin="5"/>
+                </StackPanel>
             </Grid>
 
 			<Grid Grid.Row="1">
