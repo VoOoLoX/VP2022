@@ -8,9 +8,7 @@
         <div class="left-arrow">
             <img src="/static/pics/back.svg" alt="Prethodna">
         </div>
-        <div id="vehicle-images" class="images">
-            @*<img src="https://2020hondausa.com/wp-content/uploads/2019/01/2020-Honda-Civic-Hybrid-Exterior.png" alt="">*@
-        </div>
+        <div id="vehicle-images" class="images"></div>
         <div class="right-arrow">
             <img src="/static/pics/next.svg" alt="Sledeca">
         </div>
@@ -18,14 +16,14 @@
 
     <div class="info-container">
         <div class="info-container-up">
-            <h1 id="vehicle-name">Toyota supra</h1>
-            <div id="vehicle-price" class="price">11.000e</div>
+            <h1 id="vehicle-name"></h1>
+            <div id="vehicle-price" class="price"></div>
         </div>
 
         <div class="line"></div>
 
 		<div class="info-container-down">
-			<div class="box1">
+			<div class="box">
 				<h3>Tehnički podaci:</h3>
 
 				<p id="vehicle-cubic-capacity" class="info-p">Zapremina motora:</p>
@@ -35,7 +33,7 @@
 				<p id="vehicle-milage" class="info-p">Kilometraza</p>
 			</div>
 
-			<div class="box2">
+			<div class="box">
 				<h3>Dodaci:</h3>
 
 				<p id="vehicle-cruise-control" class="info-p">Tempomat</p>
@@ -48,7 +46,7 @@
 				<p id="vehicle-air-conditioning" class="info-p">Klima</p>
 			</div>
 
-			<div class="box3">
+			<div class="box">
 				<h3>Sigurnost: </h3>
 
 				<p id="vehicle-airbag" class="info-p">Airbag</p>
@@ -61,7 +59,6 @@
 		</div>
         <div class="description-box">
             <h3>Opis vozila: </h3>
-
             <p id="vehicle-description" class="info-p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim eaque qui obcaecati similique cum molestias veniam ullam dolores perspiciatis sit molestiae temporibus ratione provident numquam exercitationem dolor, voluptas, excepturi voluptatum.</p>
         </div>
 
@@ -72,5 +69,5 @@
 </div>
 
 <script>
-    get_vehicle(@ViewContext.RouteData.Values["id"])
+	get_vehicle(@ViewContext.RouteData.Values["id"])
 </script>

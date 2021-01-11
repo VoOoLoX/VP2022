@@ -161,11 +161,11 @@ const get_vehicle = async (id) => {
 
 			api_call_get(`Images/${vehicle.id}`, (img_res) => {
 				var result = img_res.body
-				//result.images.forEach((img) => {
-				//	var img_element = get_nodes(`<img src="${img.link}">`)[0]
-				//	$('#vehicle-images').appendChild(img_element)
-				//})
-				$('#vehicle-images').appendChild(get_nodes(`<img src="${result.images[0].link}">`)[0])
+				result.images.forEach((img) => {
+					var img_element = get_nodes(`<img src="${img.link}">`)[0]
+					$('#vehicle-images').appendChild(img_element)
+				})
+				carousel()
 			})
 
 			$("#vehicle-cubic-capacity").innerText = `Zapremina motora: ${vehicle.cubicCapacity}`
@@ -195,6 +195,37 @@ const get_vehicle = async (id) => {
 	})
 }
 
+const carousel = async () => {
+	var images = $('#vehicle-images').children
+	var images_count = images.length
+	var index = 0
+
+	const refresh_carousel = (index) => {
+		Array.from(images).forEach((img) => {
+			img.style.display = 'none'
+			img.style.opacity = '0'
+		})
+		images.item(index).style.display = 'block'
+		images.item(index).style.opacity = '1'
+	}
+
+	$('.left-arrow').addEventListener('click', () => {
+		if (index == 1)
+			index = images_count - 1
+		index -= 1
+		refresh_carousel(index)
+	})
+
+	$('.right-arrow').addEventListener('click', () => {
+		if (index == images_count - 1)
+			index = 0
+		index += 1
+		refresh_carousel(index)
+	})
+
+	refresh_carousel(index)
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	_('[page]').forEach((button) => {
 		button.addEventListener('click', () => {
@@ -203,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 	if (get_cookie('jwt')) {
-		window.setInterval(logged_out, 5000, (status) => {
+		window.setInterval(logged_out, 5000, () => {
 			logout()
 		})
 	}
