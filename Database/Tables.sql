@@ -74,6 +74,12 @@ CREATE TABLE [Security] (
 	PRIMARY KEY (ID)
 );
 
+CREATE TABLE [Images] (
+	ID int NOT NULL IDENTITY,
+	Link NVARCHAR(255),
+	PRIMARY KEY (ID)
+);
+
 CREATE TABLE [Vehicles] (
 	ID int NOT NULL IDENTITY,
 	Price decimal(16,2) DEFAULT NULL,
@@ -97,13 +103,6 @@ CREATE TABLE [Vehicles] (
 	FOREIGN KEY (FeaturesID) REFERENCES Features (ID),
 	FOREIGN KEY (SecurityID) REFERENCES Security (ID),
 	FOREIGN KEY (ImagesID) REFERENCES Images (ID)
-
-);
-
-CREATE TABLE [Images] (
-	ID int NOT NULL IDENTITY,
-	Link NVARCHAR(255),
-	PRIMARY KEY (ID)
 );
 
 CREATE TABLE [SoldVehicles] (
