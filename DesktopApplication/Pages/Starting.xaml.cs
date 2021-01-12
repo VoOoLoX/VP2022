@@ -20,9 +20,9 @@ namespace DesktopApplication.Pages {
 		}
 
 		private void Refresh() {
-			VehicleCount.Value = VehicleBusiness.GetAll().Count.ToString();
+			VehicleCount.Value = VehicleBusiness.GetAllAvailable().Count.ToString();
 			SoldVehicleCount.Value = SoldVehicleBusiness.GetAll().Count.ToString();
-			Profit.Value = $"{SoldVehicleBusiness.GetProfit().ToString()} €";
+			Profit.Value = $"{SoldVehicleBusiness.GetProfit()} €";
 		}
 
 		private void OnLoad(object sender, RoutedEventArgs e) {

@@ -29,7 +29,7 @@ namespace API.Controllers {
 		}
 
 		private IActionResult FilterBrowse(BrowseInfo browse_info) {
-			var vehicles = VehicleBusiness.GetAll();
+			var vehicles = VehicleBusiness.GetAllAvailable();
 
 			if (!string.IsNullOrEmpty(browse_info.Manufacturer))
 				vehicles = vehicles.Where(v => VehicleBusiness.GetManufacturer(v).Name.ToLower().Contains(browse_info.Manufacturer.ToLower())).ToList();

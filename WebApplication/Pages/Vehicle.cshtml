@@ -20,7 +20,7 @@
 			
 			<div class="wrap">
 				<div id="vehicle-price" class="price"></div>
-				<div page="/Order" class="btn-order">Poruči</div>
+				<div id="order-button" page="/Order/@ViewContext.RouteData.Values["id"]" class="btn-order">Poruči</div>
 			</div>
 
         </div>
@@ -65,7 +65,7 @@
 		</div>
         <div class="description-box">
             <h3>Opis vozila: </h3>
-            <p id="vehicle-description" class="info-p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim eaque qui obcaecati similique cum molestias veniam ullam dolores perspiciatis sit molestiae temporibus ratione provident numquam exercitationem dolor, voluptas, excepturi voluptatum.</p>
+            <p id="vehicle-description" class="info-p"></p>
         </div>
 
         <div class="nav-back">
@@ -75,5 +75,8 @@
 </div>
 
 <script>
+	logged_out(() => {
+		$('#order-button').style.display = 'none'
+	})
 	get_vehicle(@ViewContext.RouteData.Values["id"])
 </script>

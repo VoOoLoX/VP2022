@@ -8,7 +8,9 @@ namespace BusinessLayer {
 	public static class VehicleBusiness {
 		public static List<Vehicle> GetAll() => Repositories.Instance.VehicleRepository.GetAll();
 
-		public static List<Vehicle> GetMostExpensive(int n) => GetAll().OrderByDescending(car => car.Price).Take(n).ToList();
+		public static List<Vehicle> GetAllAvailable() => GetAll().Where(vehicle => SoldVehicleBusiness.GetAll().All(sold_vehicle => vehicle.ID != sold_vehicle.VehicleID)).ToList();
+
+		public static List<Vehicle> GetMostExpensive(int n) => GetAllAvailable().OrderByDescending(car => car.Price).Take(n).ToList();
 
 		public static Vehicle Get(int id) => GetAll().FirstOrDefault(vehicle => vehicle.ID == id);
 

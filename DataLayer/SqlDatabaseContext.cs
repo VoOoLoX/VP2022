@@ -124,5 +124,36 @@ namespace DataLayer {
 
 			return command_result > 0;
 		}
+
+		public override int InsertIntoTableGetID<T>(string table, T obj) {
+			using var connection = new SqlConnection(ConnectionString);
+
+			var props = typeof(T).GetProperties();
+
+			var prop_list = props.Select(prop => $"@{prop.Name}").ToList().Skip(1);
+
+			var prop_arguments = string.Join(", ", prop_list);
+
+			//FIX Add option to choose columns to insert into
+
+			var command = new SqlCommand() {
+				CommandText = $"INSERT INTO {table} output INSERTED.ID VALUES ({prop_arguments})",
+				Connection = connection
+			};
+
+			//FIX Check for null values
+
+			foreach (var prop in prop_list) {
+				var obj_prop_str = prop.Replace("@", "");
+				var obj_prop = obj.GetType().GetProperty(obj_prop_str);
+				command.Parameters.AddWithValue(prop, obj_prop.GetValue(obj));
+			}
+
+			connection.Open();
+
+			var command_result = (int)command.ExecuteScalar();
+
+			return command_result;
+		}
 	}
 }

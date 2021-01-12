@@ -1,54 +1,55 @@
-﻿@page
+﻿@page "{id:int}"
 @model OrderModel
 @{ Layout = "_LayoutEmpty"; ViewBag.Title = "Rezerviši auto"; ViewBag.Style = "/static/css/styleOrder.css"; }
+
+<script>
+	logged_out(() => {
+		history.back()
+	})
+</script>
 
 <div class="container">
     <h1 class="moto">Rezervišite vozilo za <span>Vas</span>!</h1>
 
     <div class="wrap-box">
         <div class="order-left">
-            <form id="order-form">
-                <div class="wrapp">
-                    <div class="wrap">
-                        <label>Ime:</label>
-                        <input class="order-inputs" type="text">
-                    </div>
-                    <div class="wrap">
-                        <label>Prezime:</label>
-                        <input class="order-inputs" type="text">
-                    </div>
-                </div>
-                <label>Država:</label>
-                <input class="order-inputs" type="text">
-                <label>Grad:</label>
-                <input class="order-inputs" type="text">
-                <label>Ulica:</label>
-                <input class="order-inputs" type="text">
-                <label>Poštanski broj:</label>
-                <input class="order-inputs" type="text">
-            </form>
+			<form id="order-form">
+				<div class="wrapp">
+					<div class="wrap">
+						<label>Ime:</label>
+						<input class="order-inputs" name="first_name" id="first_name" type="text">
+					</div>
+					<div class="wrap">
+						<label>Prezime:</label>
+						<input class="order-inputs" name="last_name" id="last_name" type="text">
+					</div>
+				</div>
+
+				<label>Država:</label>
+				<input class="order-inputs" name="country" id="country" type="text">
+
+				<label>Grad:</label>
+				<input class="order-inputs" name="city" id="city" type="text">
+
+				<label>Ulica:</label>
+				<input class="order-inputs" name="street" id="street" type="text">
+
+				<label>Poštanski broj:</label>
+				<input class="order-inputs" name="zip" id="zip" type="text">
+
+				<label id="result-message">&nbsp;</label>
+			</form>
         </div>
-        <div class="order-right">
-            <div class='card'>
-                <div class='image-box'>
-                    <img src='https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2021/Civic-Type-R/Feature-Blades/Exterior-Interior/Overview/MY21CivicTypeRExtInt00Overview14002x.jpg' alt='' />
-                </div>
-                <div class='description-box'>
-                    <h1>Toyota Supra</h1>
-                    <hr>
-                    <p><strong>Godište: </strong>${vehicle.year}</p>
-                    <p><strong>Kilometraža: </strong>${vehicle.milage} km</p>
-                    <p><strong>Motor: </strong>${vehicle.cubicCapacity} cc</p>
-                    <p><strong>Tip vozila: </strong>${vehicle.vehicleType}</p>
-                    <p><strong>Gorivo: </strong>${vehicle.fuel} </p>
-                </div>
-                <div class='div-price'>${vehicle.price} &euro;</div>
-            </div>
+        <div id="order-card" class="order-right">
         </div>
     </div>
 
     <div class="order-footer">
         <div class="btn-cancel" onclick="history.back()">Otkaži</div>
-        <div class="btn-submit">Potvrdi</div>
+        <div class="btn-submit" onclick="post_order(@ViewContext.RouteData.Values["id"])">Potvrdi</div>
     </div>
 </div>
+
+<script>
+	get_order(@ViewContext.RouteData.Values["id"])
+</script>

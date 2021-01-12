@@ -47,7 +47,7 @@ namespace API.Controllers {
 				issuer: config["JWT:Issuer"],
 				audience: config["JWT:Audience"],
 				claims: claims,
-				expires: DateTime.Now.AddMinutes(1),
+				expires: DateTime.Now.AddDays(7),
 				signingCredentials: credentials
 			);
 

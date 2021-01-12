@@ -227,6 +227,47 @@ const carousel = async () => {
 	refresh_carousel(index)
 }
 
+const get_order = async (id) => {
+	await api_call_get(`Order/${id}`, (res) => {
+		if (res.status == 200) {
+			var vehicle = res.body.vehicle
+
+			$('#order-card').appendChild(create_vehicle_card(vehicle))
+		}
+	})
+}
+
+const post_order = async (id) => {
+	var form_data = new FormData($('#order-form'))
+
+	var data = {
+		vehicleId: id,
+		firstName: form_data.get('first_name'),
+		lastName: form_data.get('last_name'),
+		country: form_data.get('country'),
+		city: form_data.get('city'),
+		street: form_data.get('street'),
+		zip: form_data.get('zip')
+	}
+
+	await fetch(`${api}/Order`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': `Bearer ${get_cookie('jwt')}`
+		},
+		body: JSON.stringify(data),
+	}).then(res => {
+		if (res.status != 401)
+			$('#result-message').innerText = res.body.message
+		if (res.status == 200) {
+			setTimeout(() => {
+				location.href = '/'
+			}, 1000)
+		}
+	})
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 	_('[page]').forEach((button) => {
 		button.addEventListener('click', () => {
