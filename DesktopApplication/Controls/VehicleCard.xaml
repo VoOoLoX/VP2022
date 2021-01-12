@@ -44,7 +44,6 @@
         </StackPanel>
         <StackPanel Grid.Row="3">
             <local:ButtonPrice Width="110" Height="25" Text="100.000$" Margin="130 3 0 0"/>
-            <Button Height="20" Width="80" Margin="180 5 0 0" Content="Cena"/>
         </StackPanel>
     </Grid>
 </UserControl>
