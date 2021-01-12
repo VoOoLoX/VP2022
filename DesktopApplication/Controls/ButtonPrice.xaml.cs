@@ -13,9 +13,6 @@ using System.Windows.Shapes;
 
 namespace DesktopApplication.Controls
 {
-    /// <summary>
-    /// Interaction logic for ButtonPrice.xaml
-    /// </summary>
     public partial class ButtonPrice : UserControl
     {
         public ButtonPrice()
@@ -27,7 +24,7 @@ namespace DesktopApplication.Controls
 		public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
 			"Text",
 			typeof(string),
-			typeof(Button),
+			typeof(ButtonPrice),
 			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
 		);
 

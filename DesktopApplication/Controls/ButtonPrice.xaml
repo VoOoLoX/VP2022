@@ -7,20 +7,29 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="200">
     <UserControl.Resources>
-        <Style x:Key="button" TargetType="Button">
-            <Setter Property="Background" Value="#A0BF48"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="{StaticResource Comfortaa}"/>
-            <Setter Property="FontSize" Value="14"/>
+        <Style x:Key="button_price" TargetType="Button">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#6e8531"/>
                 </Trigger>
             </Style.Triggers>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#A0BF48"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="{StaticResource Comfortaa}"/>
+            <Setter Property="FontSize" Value="14"/>
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Button Content="{Binding Text}" Style="{StaticResource button}">
+        <Button Content="{Binding Text}" Style="{StaticResource button_price}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="20"/>
@@ -29,4 +38,3 @@
         </Button>
     </Grid>
 </UserControl>
-

@@ -42,7 +42,7 @@
 			</Grid.RowDefinitions>
 			<Image Grid.Row="0" Width="200" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Assets/Images/Logo.png"/>
 			<Control:SidebarButton x:Name="ButtonStarting" Grid.Row="1" Text="Početna" ImageSouce="/Assets/Images/Pocetna.png" MouseLeftButtonUp="OnClickStarting"/>
-			<Control:SidebarButton x:Name="ButtonInventory" Grid.Row="2" Text="Vozila na stanju" ImageSouce="/Assets/Images/NaStanju.png"/>
+			<Control:SidebarButton x:Name="ButtonInventory" Grid.Row="2" Text="Vozila na stanju" ImageSouce="/Assets/Images/NaStanju.png" MouseLeftButtonDown="OnClickInventory"/>
 			<Control:SidebarButton x:Name="ButtonNewVehicle" Grid.Row="3" Text="Unos vozila" ImageSouce="/Assets/Images/UnosAutomobila.png" MouseLeftButtonUp="OnClickNewVehicle"/>
             <Control:SidebarButton x:Name="ButtonSoldVehicles" Grid.Row="4" Text="Prodata vozila" ImageSouce="/Assets/Images/ProdatiAutomobili.png"/>
         </Grid>
