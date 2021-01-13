@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Linq;
 using BusinessLayer;
 using Shared;
 using Image = Shared.Image;
@@ -62,7 +62,7 @@ namespace DesktopApplication.Pages
             };
 
             var image = new Image() {
-                Link = VehicleImages.Text
+                Link = VehicleImages.Text.Split('/').Last()
             };
 
             var manufacturer_id = ManufacturerBusiness.Insert(manufacturer);
