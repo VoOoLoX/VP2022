@@ -18,6 +18,8 @@ namespace DesktopApplication.Controls {
 			DataContext = this;
 		}
 
+		public event Action OnClick;
+
 		public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
 			"Text",
 			typeof(string),
@@ -28,6 +30,10 @@ namespace DesktopApplication.Controls {
 		public string Text {
 			get { return (string)GetValue(TextProperty); }
 			set { SetValue(TextProperty, value); }
+		}
+
+		private void PreviewClick(object sender, MouseButtonEventArgs e) {
+			OnClick?.Invoke();
 		}
 	}
 }
