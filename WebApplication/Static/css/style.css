@@ -50,10 +50,11 @@ button:hover {
 }
 
 .btn-submit {
-	background-color: #ECECEC;
+	background-color: transparent;
 	border: 1px solid #437F99;
-	color: #437F99;
+	color: #E5E5E5;
 	width: 100%;
+	font-family: 'Comfortaa', cursive;
 }
 
 .btn-submit:hover {
