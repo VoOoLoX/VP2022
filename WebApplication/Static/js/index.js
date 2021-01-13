@@ -23,7 +23,6 @@ const api_call = async (endpoint, method, data, callback) => {
 		body: JSON.stringify(data),
 	}).then(r => r.json().then(data => ({ status: r.status, body: data }))).then(obj => callback(obj))
 }
-
 const api_call_get = async (endpoint, callback) => {
 	await fetch(`${api}/${endpoint}`, {
 		method: 'GET'
