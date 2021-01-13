@@ -16,7 +16,7 @@
 	    </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
-                <Image Source="/Assets/Images/Evidencija.png" Height="32" Width="32"></Image>
+                <Image Source="/Assets/Images/List.png" Height="32" Width="32"></Image>
 				<TextBlock Foreground="#437F99" FontSize="24" Margin="10 0 0 0">Evidencija</TextBlock>
             </StackPanel>
             <Rectangle Fill="#437F99" Height="3"></Rectangle>
@@ -33,7 +33,7 @@
         </Grid>
         <StackPanel Grid.Row="2" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
-                <Image Source="/Assets/Images/Statistika.png" Height="32" Width="32"></Image>
+                <Image Source="/Assets/Images/Stats.png" Height="32" Width="32"></Image>
 				<TextBlock Foreground="#437F99" FontSize="24" Margin="10 0 0 0">Statistika</TextBlock>
             </StackPanel>
             <Rectangle Fill="#437F99" Height="3"></Rectangle>

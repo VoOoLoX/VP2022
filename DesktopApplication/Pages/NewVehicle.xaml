@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 		<StackPanel Grid.Row="0" Orientation="Vertical">
 			<StackPanel Orientation="Horizontal" Margin="0 0 0 5">
-				<Image Source="/Assets/Images/UnosAutomobila.png" Height="32" Width="32"></Image>
+				<Image Source="/Assets/Images/Pen.png" Height="32" Width="32"></Image>
 				<TextBlock Foreground="#437F99" FontSize="24" Margin="10 0 0 0">Novo vozilo</TextBlock>
 			</StackPanel>
 			<Rectangle Fill="#437F99" Height="3"></Rectangle>
@@ -37,14 +37,14 @@
                     <Control:TextInput x:Name="VehicleModel" Label="Model:" Width="300" Margin="5"/>
                     <Control:TextInput x:Name="VehicleType" Label="Tip:" Width="300" Margin="5"/>
                     <Control:TextInput x:Name="VehicleFuel" Label="Gorivo:" Width="300" Margin="5"/>
-                    <Control:TextInput x:Name="VehicleHorsePower" Label="Snaga Motora:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleColor" Label="Boja:" Width="300" Margin="5"/>
 				</StackPanel>
 				<StackPanel Grid.Column="1" Orientation="Vertical">
                     <Control:TextInput x:Name="VehicleYear" Label="Godina proizvodnje:" Width="300" Margin="5"/>
-                    <Control:TextInput x:Name="VehicleColor" Label="Boja:" Width="300" Margin="5"/>
-                    <Control:TextInput x:Name="VehicleMilage" Label="Kilometraža:" Width="300" Margin="5"/>
-                    <Control:TextInput x:Name="VehiclePrice" Label="Cena:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleMileage" Label="Kilometraža:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehicleHorsePower" Label="Snaga Motora:" Width="300" Margin="5"/>
                     <Control:TextInput x:Name="VehicleCubicCapacity" Label="Kubikaža:" Width="300" Margin="5"/>
+                    <Control:TextInput x:Name="VehiclePrice" Label="Cena:" Width="300" Margin="5"/>
                 </StackPanel>
             </Grid>
 
@@ -82,13 +82,14 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<StackPanel Grid.Column="0" Orientation="Vertical">
-					<Control:TextInputMultiline Label="Opis:" Width="500" Height="250"/>
+					<Control:TextInput x:Name="VehicleImages" Label="Link za slike:" Width="500"/>
+					<Control:TextInputMultiline x:Name="VehicleDescription" Label="Opis:" Width="500" Height="250"/>
 				</StackPanel>
 			</Grid>
 		</Grid>
 		
 		<StackPanel Grid.Row="2">
-			<Control:Button Width="150" Height="50" Text="Dodaj"></Control:Button>
+			<Control:Button x:Name="NewVehicleButton" Width="150" Height="50" Text="Dodaj"/>
 		</StackPanel>
      </Grid>
 </Page>
