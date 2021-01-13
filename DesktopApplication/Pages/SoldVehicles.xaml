@@ -3,12 +3,23 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:DesktopApplication.Pages"
+      xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:Control="clr-namespace:DesktopApplication.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SoldVehicles">
+      Title="SoldVehicles" Loaded="OnLoad">
 
-    <Grid>
-        
-    </Grid>
+	<Grid Background="#F5F5F5">
+		<ItemsControl x:Name="InventoryItems">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<UniformGrid Columns="3" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Control:VehicleCard Width="250" Height="350" Margin="0 20 0 20" FullName="{Binding FullName}" Year="{Binding Year}" Mileage="{Binding Mileage}" HorsePower="{Binding HorsePower}" Fuel="{Binding Fuel}" Price="{Binding Price}"></Control:VehicleCard>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+	</Grid>
 </Page>

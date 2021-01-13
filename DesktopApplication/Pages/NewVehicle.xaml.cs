@@ -79,14 +79,14 @@ namespace DesktopApplication.Pages
 
             if (feature_id > 0 && security_id > 0 && image_id > 0 && manufacturer_id > 0 && model_id > 0 && type_id > 0) {
                 var vehicle = new Vehicle() {
-                    Price = decimal.Parse(VehiclePrice.Text),
-                    Mileage = decimal.Parse(VehicleMileage.Text),
+                    Price = decimal.Parse(VehiclePrice.Text ?? "0"),
+                    Mileage = decimal.Parse(VehicleMileage.Text ?? "0"),
                     Color = VehicleColor.Text,
                     Fuel = VehicleFuel.Text,
                     Description = VehicleDescription.Text,
-                    Year = int.Parse(VehicleYear.Text),
-                    CubicCapacity = int.Parse(VehicleCubicCapacity.Text),
-                    HorsePower = int.Parse(VehicleHorsePower.Text),
+                    Year = int.Parse(VehicleYear.Text ?? "0"),
+                    CubicCapacity = int.Parse(VehicleCubicCapacity.Text ?? "0"),
+                    HorsePower = int.Parse(VehicleHorsePower.Text ?? "0"),
 					ManufacturerID = manufacturer_id,
 					ModelID = model_id,
 					TypeID = type_id,

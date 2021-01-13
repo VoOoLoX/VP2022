@@ -51,7 +51,7 @@ namespace API.Controllers {
 				CubicCapacity = vehicle.CubicCapacity,
 				VehicleType = VehicleBusiness.GetVehicleType(vehicle).Name,
 				Fuel = vehicle.Fuel,
-				Image = ImagesController.GetImgurImages(vehicle).data.FirstOrDefault().link
+				Image = ImageUtils.GetImgurImages(VehicleBusiness.GetImage(v).Link).Data.FirstOrDefault().Link
 			};
 
 			return Ok(new { vehicle = result });

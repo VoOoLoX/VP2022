@@ -6,6 +6,7 @@ using BusinessLayer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shared;
 
 namespace API.Controllers {
 	[Route("api/[controller]")]
@@ -34,7 +35,7 @@ namespace API.Controllers {
 				CubicCapacity = v.CubicCapacity,
 				VehicleType = VehicleBusiness.GetVehicleType(v).Name,
 				Fuel = v.Fuel,
-				Image = ImagesController.GetImgurImages(v).data.FirstOrDefault().link
+				Image = ImageUtils.GetImgurImages(VehicleBusiness.GetImage(v).Link).Data.FirstOrDefault().Link
 			}).ToList();
 
 			return Ok(new { results = results.Count, vehicles = results });

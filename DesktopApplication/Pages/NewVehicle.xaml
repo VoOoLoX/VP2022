@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:Control="clr-namespace:DesktopApplication.Controls"
       mc:Ignorable="d" d:DesignWidth="800"
       Title="NewVehicle" Height="1300">
-    <Grid Margin="80 50 80 0">
+	<Grid Margin="80 50 80 0" Background="#F5F5F5">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>

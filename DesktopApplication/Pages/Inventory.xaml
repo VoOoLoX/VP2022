@@ -6,9 +6,20 @@
       xmlns:local="clr-namespace:DesktopApplication.Pages" xmlns:Control="clr-namespace:DesktopApplication.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Inventory">
+      Title="Inventory" Loaded="OnLoad">
 
-    <Grid>
-        <Control:VehicleCard Width="300" Height="380"></Control:VehicleCard>
+	<Grid Background="#F5F5F5">
+		<ItemsControl x:Name="InventoryItems">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<UniformGrid Columns="3" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Control:VehicleCard Width="250" Height="350" Margin="0 20 0 20" FullName="{Binding FullName}" Year="{Binding Year}" Mileage="{Binding Mileage}" HorsePower="{Binding HorsePower}" Fuel="{Binding Fuel}" Price="{Binding Price}"></Control:VehicleCard>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
     </Grid>
 </Page>

@@ -44,7 +44,7 @@
 			<Control:SidebarButton x:Name="ButtonStarting" Grid.Row="1" Text="Početna" ImageSouce="/Assets/Images/Dashboard.png" MouseLeftButtonUp="OnClickStarting"/>
 			<Control:SidebarButton x:Name="ButtonInventory" Grid.Row="2" Text="Vozila na stanju" ImageSouce="/Assets/Images/Car.png" MouseLeftButtonDown="OnClickInventory"/>
 			<Control:SidebarButton x:Name="ButtonNewVehicle" Grid.Row="3" Text="Unos vozila" ImageSouce="/Assets/Images/Pen.png" MouseLeftButtonUp="OnClickNewVehicle"/>
-            <Control:SidebarButton x:Name="ButtonSoldVehicles" Grid.Row="4" Text="Prodata vozila" ImageSouce="/Assets/Images/Cart.png"/>
+            <Control:SidebarButton x:Name="ButtonSoldVehicles" Grid.Row="4" Text="Prodata vozila" ImageSouce="/Assets/Images/Cart.png" MouseLeftButtonUp="OnClickSoldVehicles"/>
         </Grid>
 		<ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
 			<Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Style="{StaticResource frame}"></Frame>

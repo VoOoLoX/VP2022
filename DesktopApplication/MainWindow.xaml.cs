@@ -18,6 +18,7 @@ namespace DesktopApplication {
 		readonly Page starting = new Starting();
 		readonly Page new_vehicle = new NewVehicle();
 		readonly Page inventory = new Inventory();
+		readonly Page sold_vehicles = new SoldVehicles();
 
 		public MainWindow() {
 			InitializeComponent();
@@ -45,5 +46,9 @@ namespace DesktopApplication {
         {
 			ChangePage(inventory);
 		}
-    }
+
+		private void OnClickSoldVehicles(object sender, MouseButtonEventArgs e) {
+			ChangePage(sold_vehicles);
+		}
+	}
 }
