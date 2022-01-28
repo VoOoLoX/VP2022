@@ -20,16 +20,30 @@ namespace DesktopApplication.Controls
             InitializeComponent();
         }
 
-		public static readonly DependencyProperty ImageSouceProperty = DependencyProperty.Register(
-			"ImageSouce",
+		public event Action<int> OnDeleteButton;
+
+		public static readonly DependencyProperty CardIDProperty = DependencyProperty.Register(
+			"CardID",
+			typeof(int),
+			typeof(VehicleCard),
+			new FrameworkPropertyMetadata(-1, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
+		);
+
+		public int CardID {
+			get => (int)GetValue(CardIDProperty);
+			set => SetValue(CardIDProperty, value);
+		}
+
+		public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
+			"ImageSource",
 			typeof(string),
 			typeof(VehicleCard),
 			new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault)
 		);
 
-		public string ImageSouce {
-			get { return (string)GetValue(ImageSouceProperty); }
-			set { SetValue(ImageSouceProperty, value); }
+		public string ImageSource {
+			get => (string)GetValue(ImageSourceProperty);
+			set => SetValue(ImageSourceProperty, value);
 		}
 
 		public static readonly DependencyProperty FullNameProperty = DependencyProperty.Register(
@@ -40,8 +54,8 @@ namespace DesktopApplication.Controls
 		);
 
 		public string FullName {
-			get { return (string)GetValue(FullNameProperty); }
-			set { SetValue(FullNameProperty, value); }
+			get => (string)GetValue(FullNameProperty);
+			set => SetValue(FullNameProperty, value);
 		}
 
 		public static readonly DependencyProperty YearProperty = DependencyProperty.Register(
@@ -52,8 +66,8 @@ namespace DesktopApplication.Controls
 		);
 
 		public string Year {
-			get { return (string)GetValue(YearProperty); }
-			set { SetValue(YearProperty, value); }
+			get => (string)GetValue(YearProperty);
+			set => SetValue(YearProperty, value);
 		}
 
 		public static readonly DependencyProperty MileageProperty = DependencyProperty.Register(
@@ -64,8 +78,8 @@ namespace DesktopApplication.Controls
 		);
 
 		public string Mileage {
-			get { return (string)GetValue(MileageProperty); }
-			set { SetValue(MileageProperty, value); }
+			get => (string)GetValue(MileageProperty);
+			set => SetValue(MileageProperty, value);
 		}
 
 		public static readonly DependencyProperty HorsePowerProperty = DependencyProperty.Register(
@@ -76,8 +90,8 @@ namespace DesktopApplication.Controls
 		);
 
 		public string HorsePower {
-			get { return (string)GetValue(HorsePowerProperty); }
-			set { SetValue(HorsePowerProperty, value); }
+			get => (string)GetValue(HorsePowerProperty);
+			set => SetValue(HorsePowerProperty, value);
 		}
 
 		public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
@@ -88,8 +102,8 @@ namespace DesktopApplication.Controls
 		);
 
 		public string Type {
-			get { return (string)GetValue(TypeProperty); }
-			set { SetValue(TypeProperty, value); }
+			get => (string)GetValue(TypeProperty);
+			set => SetValue(TypeProperty, value);
 		}
 
 		public static readonly DependencyProperty FuelProperty = DependencyProperty.Register(
@@ -100,8 +114,8 @@ namespace DesktopApplication.Controls
 		);
 
 		public string Fuel {
-			get { return (string)GetValue(FuelProperty); }
-			set { SetValue(FuelProperty, value); }
+			get => (string)GetValue(FuelProperty);
+			set => SetValue(FuelProperty, value);
 		}
 
 		public static readonly DependencyProperty PriceProperty = DependencyProperty.Register(
@@ -112,8 +126,10 @@ namespace DesktopApplication.Controls
 		);
 
 		public string Price {
-			get { return (string)GetValue(PriceProperty); }
-			set { SetValue(PriceProperty, value); }
+			get => (string)GetValue(PriceProperty);
+			set => SetValue(PriceProperty, value);
 		}
+
+		private void DeleteButton(object sender, MouseButtonEventArgs e) => OnDeleteButton?.Invoke(CardID);
 	}
 }

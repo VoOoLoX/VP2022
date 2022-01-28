@@ -32,8 +32,6 @@ namespace DesktopApplication.Controls {
 			set { SetValue(TextProperty, value); }
 		}
 
-		private void PreviewClick(object sender, MouseButtonEventArgs e) {
-			OnClick?.Invoke();
-		}
+		private void PreviewClick(object sender, MouseButtonEventArgs e) => OnClick?.Invoke();
 	}
 }

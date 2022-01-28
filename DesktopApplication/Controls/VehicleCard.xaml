@@ -5,15 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DesktopApplication.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="380" d:DesignWidth="300">
+             d:DesignHeight="360" d:DesignWidth="280
+			 ">
 	<Grid>
 	    <Border BorderThickness="0" CornerRadius="20" Background="White">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="175"/>
                     <RowDefinition Height="45"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0">
                     <Image Source="{Binding ImageSource}"/>
@@ -22,7 +23,7 @@
 					<TextBlock FontSize="24" Width="255" Margin="10 0 10 0" Text="{Binding FullName}"></TextBlock>
                     <Rectangle Fill="Gray" Height="3" Margin="10"/>
                 </StackPanel>
-                <StackPanel Grid.Row="2">
+				<StackPanel Grid.Row="2">
                     <StackPanel Orientation="Horizontal">
 						<Label FontSize="12" Margin="5 0 0 0">Godiste:</Label>
 				        <TextBlock FontSize="12" Width="105" VerticalAlignment="Center" Text="{Binding Year}"></TextBlock>
@@ -40,11 +41,16 @@
                         <TextBlock FontSize="12" Width="105" VerticalAlignment="Center" Text="{Binding Fuel}"></TextBlock>
                     </StackPanel>
                 </StackPanel>
-		        <StackPanel Grid.Row="3" HorizontalAlignment="Right">
-			        <Border Width="110" Height="25" Padding="5" Margin="0 0 10 10" BorderThickness="0" CornerRadius="15" Background="#A0BF48">
+				<StackPanel Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+					<Border Width="110" Height="25" Padding="5" Margin="10 0 0 0" BorderThickness="0" CornerRadius="15" Background="#eb4034" PreviewMouseUp="DeleteButton">
+						<TextBlock FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="Obriši"></TextBlock>
+					</Border>
+				</StackPanel>
+				<StackPanel Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center">
+			        <Border Width="110" Height="25" Padding="5" Margin="0 0 10 0" BorderThickness="0" CornerRadius="15" Background="#A0BF48">
 				        <TextBlock FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Text="{Binding Price}"></TextBlock>
 			        </Border>
-                </StackPanel>
+				</StackPanel>
             </Grid>
 			<Border.Effect>
 				<DropShadowEffect Opacity="0.5" Direction="270"/>

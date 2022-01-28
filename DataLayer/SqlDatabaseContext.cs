@@ -155,5 +155,32 @@ namespace DataLayer {
 
 			return command_result;
 		}
+
+		public override bool DeleteFromTable<T>(string table, T obj) {
+			using var connection = new SqlConnection(ConnectionString);
+
+			var props = typeof(T).GetProperties();
+
+			var prop_list = props.Select(prop => $"@{prop.Name}").ToList();
+
+			var prop_arguments = string.Join(" AND ", props.Select(prop => $"{prop.Name} = @{prop.Name}").ToList());
+
+			var command = new SqlCommand() {
+				CommandText = $"DELETE FROM {table} WHERE {prop_arguments}",
+				Connection = connection
+			};
+
+			foreach(var prop in prop_list) {
+				var obj_prop_str = prop.Replace("@", "");
+				var obj_prop = obj.GetType().GetProperty(obj_prop_str);
+				command.Parameters.AddWithValue(prop, obj_prop.GetValue(obj));
+			}
+
+			connection.Open();
+
+			var command_result = command.ExecuteNonQuery();
+
+			return command_result > 0;
+		}
 	}
 }

@@ -8,7 +8,7 @@ namespace BusinessLayer {
 	public sealed class Repositories {
 		static readonly Lazy<Repositories> lazy = new Lazy<Repositories>(() => new Repositories());
 
-		public static Repositories Instance { get { return lazy.Value; } }
+		public static Repositories Instance => lazy.Value;
 
 		static string connection_string = Constants.ConnectionString;
 		public string ConnectionString { get => connection_string; set => connection_string = value; }

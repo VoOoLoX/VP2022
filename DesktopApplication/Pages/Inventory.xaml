@@ -17,7 +17,7 @@
 			</ItemsControl.ItemsPanel>
 			<ItemsControl.ItemTemplate>
 				<DataTemplate>
-					<Control:VehicleCard Width="250" Height="350" Margin="0 20 0 20" FullName="{Binding FullName}" Year="{Binding Year}" Mileage="{Binding Mileage}" HorsePower="{Binding HorsePower}" Fuel="{Binding Fuel}" Price="{Binding Price}"></Control:VehicleCard>
+					<Control:VehicleCard Width="280" Height="360" Margin="0 20 0 20" CardID="{Binding CardID}" FullName="{Binding FullName}" Year="{Binding Year}" Mileage="{Binding Mileage}" HorsePower="{Binding HorsePower}" Fuel="{Binding Fuel}" Price="{Binding Price}" OnDeleteButton="VehicleCard_OnDeleteButton"></Control:VehicleCard>
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>
 		</ItemsControl>

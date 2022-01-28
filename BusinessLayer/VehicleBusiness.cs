@@ -16,6 +16,8 @@ namespace BusinessLayer {
 
 		public static bool Insert(Vehicle vehicle) => Repositories.Instance.VehicleRepository.Insert(vehicle);
 
+		public static bool Delete(Vehicle vehicle) => Repositories.Instance.VehicleRepository.Delete(vehicle);
+
 		public static Manufacturer GetManufacturer(Vehicle vehicle) => Repositories.Instance.ManufacturerRepository.GetAll().Find(manufacturer => manufacturer.ID == vehicle.ManufacturerID);
 
 		public static VehicleModel GetVehicleModel(Vehicle vehicle) => Repositories.Instance.VehicleModelRepository.GetAll().Find(model => model.ID == vehicle.ModelID);

@@ -15,5 +15,6 @@ namespace DataLayer {
 		public List<T> GetAll() => DatabaseContext.GetAllFromTable<T>(TableName);
 		public bool Insert(T item) => DatabaseContext.InsertIntoTable(TableName, item);
 		public int InsertGetID(T item) => DatabaseContext.InsertIntoTableGetID(TableName, item);
+		public bool Delete(T item) => DatabaseContext.DeleteFromTable(TableName, item);
 	}
 }

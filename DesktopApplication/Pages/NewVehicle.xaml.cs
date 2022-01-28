@@ -14,95 +14,110 @@ using BusinessLayer;
 using Shared;
 using Image = Shared.Image;
 
-namespace DesktopApplication.Pages
-{
-    public partial class NewVehicle : Page
-    {
-        public NewVehicle()
-        {
-            InitializeComponent();
+namespace DesktopApplication.Pages {
+	public partial class NewVehicle : Page {
+		public NewVehicle() {
+			InitializeComponent();
 			DataContext = this;
 
-            NewVehicleButton.OnClick += AddNewVehicle;
-        }
+			NewVehicleButton.OnClick += AddNewVehicle;
+		}
 
 		private void AddNewVehicle() {
-            var manufacturer = new Manufacturer() {
-                Name = VehicleManufacturer.Text
-            };
+			if(
+				string.IsNullOrEmpty(VehicleManufacturer.Text) ||
+				string.IsNullOrEmpty(VehicleModel.Text) ||
+				string.IsNullOrEmpty(VehicleType.Text) ||
+				string.IsNullOrEmpty(VehicleFuel.Text) ||
+				string.IsNullOrEmpty(VehicleColor.Text) ||
+				string.IsNullOrEmpty(VehicleYear.Text) ||
+				string.IsNullOrEmpty(VehicleMileage.Text) ||
+				string.IsNullOrEmpty(VehicleHorsePower.Text) ||
+				string.IsNullOrEmpty(VehicleCubicCapacity.Text) ||
+				string.IsNullOrEmpty(VehiclePrice.Text) ||
+				string.IsNullOrEmpty(VehicleImages.Text) ||
+				string.IsNullOrEmpty(VehicleDescription.Text)
+			) {
+				MessageBox.Show("Sva polja moraju biti popunjena", "Operacija neuspešna", MessageBoxButton.OK, MessageBoxImage.Warning);
+				return;
+			}
 
-            var model = new VehicleModel() {
-                Name = VehicleModel.Text
-            };
+			var manufacturer = new Manufacturer() {
+				Name = VehicleManufacturer.Text ?? ""
+			};
 
-            var type = new VehicleType() {
-                Name = VehicleType.Text
-            };
+			var model = new VehicleModel() {
+				Name = VehicleModel.Text ?? ""
+			};
 
-            var feature = new Feature() {
-                CruiseControl = VehicleCruiseControl.IsChecked,
-                ParkingSensors = VehicleParkingSensor.IsChecked,
-                ElectricWindows = VehicleElectricWindows.IsChecked,
-                Sunroof = VehicleSunroof.IsChecked,
-                XenonHeadlights = VehicleXenonHeadlights.IsChecked,
-                Multimedia = VehicleMultimedia.IsChecked,
-                PowerAssistedSteering = VehiclePowerSteering.IsChecked,
-                AirConditioning = VehicleAirConditioning.IsChecked,
-                Navigation = VehicleNavigation.IsChecked
-            };
+			var type = new VehicleType() {
+				Name = VehicleType.Text ?? ""
+			};
 
-            var security = new Security() {
-                Airbag = VehicleAirbag.IsChecked,
-                ESP = VehicleESP.IsChecked,
-                ASR = VehicleASR.IsChecked,
-                ABS = VehicleABS.IsChecked,
-                ChildLock = VehicleChildlock.IsChecked,
-                Immobiliser = VehicleImmobiliser.IsChecked,
-                CentralLocking = VehicleCentralLocking.IsChecked
-            };
+			var feature = new Feature() {
+				CruiseControl = VehicleCruiseControl.IsChecked,
+				ParkingSensors = VehicleParkingSensor.IsChecked,
+				ElectricWindows = VehicleElectricWindows.IsChecked,
+				Sunroof = VehicleSunroof.IsChecked,
+				XenonHeadlights = VehicleXenonHeadlights.IsChecked,
+				Multimedia = VehicleMultimedia.IsChecked,
+				PowerAssistedSteering = VehiclePowerSteering.IsChecked,
+				AirConditioning = VehicleAirConditioning.IsChecked,
+				Navigation = VehicleNavigation.IsChecked
+			};
 
-            var image = new Image() {
-                Link = VehicleImages.Text.Split('/').Last()
-            };
+			var security = new Security() {
+				Airbag = VehicleAirbag.IsChecked,
+				ESP = VehicleESP.IsChecked,
+				ASR = VehicleASR.IsChecked,
+				ABS = VehicleABS.IsChecked,
+				ChildLock = VehicleChildlock.IsChecked,
+				Immobiliser = VehicleImmobiliser.IsChecked,
+				CentralLocking = VehicleCentralLocking.IsChecked
+			};
 
-            var manufacturer_id = ManufacturerBusiness.Insert(manufacturer);
+			var image = new Image() {
+				Link = VehicleImages.Text.Split('/').Last()
+			};
 
-            var model_id = VehicleModelBusiness.Insert(model);
+			var manufacturer_id = ManufacturerBusiness.Insert(manufacturer);
 
-            var type_id = VehicleTypeBusiness.Insert(type);
+			var model_id = VehicleModelBusiness.Insert(model);
 
-            var feature_id = FeatureBusiness.Insert(feature);
+			var type_id = VehicleTypeBusiness.Insert(type);
 
-            var security_id = SecurityBusiness.Insert(security);
+			var feature_id = FeatureBusiness.Insert(feature);
 
-            var image_id = ImageBusiness.Insert(image);
+			var security_id = SecurityBusiness.Insert(security);
 
-            if (feature_id > 0 && security_id > 0 && image_id > 0 && manufacturer_id > 0 && model_id > 0 && type_id > 0) {
-                var vehicle = new Vehicle() {
-                    Price = decimal.Parse(VehiclePrice.Text ?? "0"),
-                    Mileage = decimal.Parse(VehicleMileage.Text ?? "0"),
-                    Color = VehicleColor.Text,
-                    Fuel = VehicleFuel.Text,
-                    Description = VehicleDescription.Text,
-                    Year = int.Parse(VehicleYear.Text ?? "0"),
-                    CubicCapacity = int.Parse(VehicleCubicCapacity.Text ?? "0"),
-                    HorsePower = int.Parse(VehicleHorsePower.Text ?? "0"),
+			var image_id = ImageBusiness.Insert(image);
+
+			if(feature_id > 0 && security_id > 0 && image_id > 0 && manufacturer_id > 0 && model_id > 0 && type_id > 0) {
+				var vehicle = new Vehicle() {
+					Price = decimal.Parse(string.IsNullOrEmpty(VehiclePrice.Text) ? "0" : VehiclePrice.Text),
+					Mileage = decimal.Parse(string.IsNullOrEmpty(VehicleMileage.Text) ? "0" : VehicleMileage.Text),
+					Color = VehicleColor.Text ?? "",
+					Fuel = VehicleFuel.Text ?? "",
+					Description = VehicleDescription.Text ?? "",
+					Year = int.Parse(string.IsNullOrEmpty(VehicleYear.Text) ? "0" : VehicleYear.Text),
+					CubicCapacity = int.Parse(string.IsNullOrEmpty(VehicleCubicCapacity.Text) ? "0" : VehicleCubicCapacity.Text),
+					HorsePower = int.Parse(string.IsNullOrEmpty(VehicleHorsePower.Text) ? "0" : VehicleHorsePower.Text),
 					ManufacturerID = manufacturer_id,
 					ModelID = model_id,
 					TypeID = type_id,
 					FeaturesID = feature_id,
 					SecurityID = security_id,
 					ImagesID = image_id,
-                };
+				};
 
-                if (VehicleBusiness.Insert(vehicle))
-                    MessageBox.Show("Vozilo uspešno dodato", "Operacija uspešna", MessageBoxButton.OK, MessageBoxImage.None);
-                else
-                    MessageBox.Show("Došlo je do greške", "Operacija neuspešna", MessageBoxButton.OK, MessageBoxImage.Error);
-            } else {
-                MessageBox.Show("Došlo je do greške", "Operacija neuspešna", MessageBoxButton.OK, MessageBoxImage.Error);
+				if(VehicleBusiness.Insert(vehicle))
+					MessageBox.Show("Vozilo uspešno dodato", "Operacija uspešna", MessageBoxButton.OK, MessageBoxImage.None);
+				else
+					MessageBox.Show("Došlo je do greške", "Operacija neuspešna", MessageBoxButton.OK, MessageBoxImage.Error);
+			} else {
+				MessageBox.Show("Došlo je do greške", "Operacija neuspešna", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
-        }
+		}
 
 	}
 }

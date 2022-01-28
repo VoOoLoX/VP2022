@@ -64,14 +64,13 @@ namespace API.Controllers {
 				return NotFound(new { message = "Vozilo nije pronađeno." });
 
 			var order = new Order() {
-				FirstName = order_info.FirstName,
-				LastName = order_info.LastName,
-				Country = order_info.Country,
-				City = order_info.City,
-				Street = order_info.Street,
-				PostalCode = int.Parse(order_info.Zip)
+				FirstName = order_info.FirstName ?? "",
+				LastName = order_info.LastName ?? "",
+				Country = order_info.Country ?? "",
+				City = order_info.City ?? "",
+				Street = order_info.Street ?? "",
+				PostalCode = int.Parse(string.IsNullOrEmpty(order_info.Zip) ? "0" : order_info.Zip)
 			};
-			//FIX Postal code should be string
 
 			var order_id = OrderBusiness.Insert(order);
 
@@ -83,10 +82,7 @@ namespace API.Controllers {
 
 			var result = SoldVehicleBusiness.Insert(sold_vehicle);
 
-			if (result)
-				return Ok(new { message = "Porudžbina uspešna." });
-			else
-				return BadRequest(new { message = "Došlo je do grešeke pri porudžbini." });
+			return result ? Ok(new { message = "Porudžbina uspešna." }) : BadRequest(new { message = "Došlo je do grešeke pri porudžbini." });
 		}
 	}
 }
