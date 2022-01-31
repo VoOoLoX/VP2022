@@ -33,7 +33,7 @@
                         <TextBlock FontSize="12" Width="105" VerticalAlignment="Center" Text="{Binding Mileage}"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Label FontSize="12" Margin="5 0 0 0">Motor:</Label>
+                        <Label FontSize="12" Margin="5 0 0 0">Konjaža:</Label>
                         <TextBlock FontSize="12" Width="105" VerticalAlignment="Center" Text="{Binding HorsePower}"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
